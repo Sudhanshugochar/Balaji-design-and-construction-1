@@ -205,7 +205,7 @@ const HeroSection = () => {
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <p className="font-display text-3xl lg:text-4xl text-primary-foreground">
-                <Counter to={6} duration={1.5} suffix="+" />
+                <Counter to={30} duration={1.5} suffix="+" />
               </p>
               <p className="text-primary-foreground/80 text-sm">Happy Clients</p>
             </motion.div>
