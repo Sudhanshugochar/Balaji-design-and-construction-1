@@ -114,7 +114,7 @@ const AboutSection = () => {
               className="bg-charcoal p-6 lg:p-8 shadow-card mt-8"
             >
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">
-                <Counter to={6} duration={2} suffix="+" />
+                <Counter to={30} duration={2} suffix="+" />
               </p>
               <p className="text-muted-foreground text-sm uppercase tracking-wide">Satisfied Clients</p>
               <p className="text-accent-foreground/70 text-sm mt-3">& Growing</p>
