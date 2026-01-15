@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { FadeInLeft, FadeInUp, StaggerContainer, Counter } from '@/components/ui/motion';
+import { FadeInLeft, StaggerContainer, Counter } from '@/components/ui/motion';
 
 const AboutSection = () => {
   const highlights = [
@@ -11,20 +11,6 @@ const AboutSection = () => {
     'On-time project delivery',
     'Personalized design solutions',
   ];
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    }),
-  };
 
   return (
     <section className="section-padding bg-cream overflow-hidden">
@@ -91,13 +77,11 @@ const AboutSection = () => {
           {/* Right Stats Cards */}
           <StaggerContainer className="grid grid-cols-2 gap-4 lg:gap-6">
             <motion.div 
-              custom={0}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              variants={cardVariants}
-              whileHover={{ y: -10, boxShadow: 'var(--shadow-elevated)' }}
-              transition={{ type: 'spring', stiffness: 300 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              whileHover={{ y: -10 }}
               className="bg-background p-6 lg:p-8 shadow-card"
             >
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">
@@ -122,13 +106,11 @@ const AboutSection = () => {
             </motion.div>
             
             <motion.div 
-              custom={1}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              variants={cardVariants}
-              whileHover={{ y: -10, boxShadow: 'var(--shadow-elevated)' }}
-              transition={{ type: 'spring', stiffness: 300 }}
+              transition={{ delay: 0.15, duration: 0.6, ease: 'easeOut' }}
+              whileHover={{ y: -10 }}
               className="bg-charcoal p-6 lg:p-8 shadow-card mt-8"
             >
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">
@@ -139,13 +121,11 @@ const AboutSection = () => {
             </motion.div>
             
             <motion.div 
-              custom={2}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              variants={cardVariants}
-              whileHover={{ y: -10, boxShadow: 'var(--shadow-elevated)' }}
-              transition={{ type: 'spring', stiffness: 300 }}
+              transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
+              whileHover={{ y: -10 }}
               className="bg-charcoal p-6 lg:p-8 shadow-card -mt-8"
             >
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">
@@ -156,13 +136,11 @@ const AboutSection = () => {
             </motion.div>
             
             <motion.div 
-              custom={3}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              variants={cardVariants}
-              whileHover={{ y: -10, boxShadow: 'var(--shadow-elevated)' }}
-              transition={{ type: 'spring', stiffness: 300 }}
+              transition={{ delay: 0.45, duration: 0.6, ease: 'easeOut' }}
+              whileHover={{ y: -10 }}
               className="bg-background p-6 lg:p-8 shadow-card"
             >
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">

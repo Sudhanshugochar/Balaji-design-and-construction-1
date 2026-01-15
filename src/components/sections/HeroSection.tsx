@@ -17,32 +17,6 @@ const HeroSection = () => {
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.5, 0.8]);
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    }),
-  };
-
-  const letterVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.3 + i * 0.05,
-        duration: 0.5,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    }),
-  };
-
   const headlineWords = ['Building', 'Dreams,'];
   const headlineWords2 = ['Creating'];
 
@@ -53,10 +27,9 @@ const HeroSection = () => {
         <div className="flex flex-col justify-center px-12 xl:px-20 py-32">
           <div className="max-w-xl">
             <motion.p
-              custom={0}
-              initial="hidden"
-              animate="visible"
-              variants={textVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-6"
             >
               Wardha's Trusted Builder
@@ -67,10 +40,9 @@ const HeroSection = () => {
                 {headlineWords.map((word, wordIndex) => (
                   <motion.span
                     key={wordIndex}
-                    custom={wordIndex}
-                    initial="hidden"
-                    animate="visible"
-                    variants={letterVariants}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + wordIndex * 0.1, duration: 0.6, ease: 'easeOut' }}
                     className="inline-block mr-4"
                   >
                     {word}
@@ -81,20 +53,18 @@ const HeroSection = () => {
                 {headlineWords2.map((word, wordIndex) => (
                   <motion.span
                     key={wordIndex}
-                    custom={wordIndex + 2}
-                    initial="hidden"
-                    animate="visible"
-                    variants={letterVariants}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 + wordIndex * 0.1, duration: 0.6, ease: 'easeOut' }}
                     className="inline-block mr-4"
                   >
                     {word}
                   </motion.span>
                 ))}
                 <motion.span
-                  custom={3}
-                  initial="hidden"
-                  animate="visible"
-                  variants={letterVariants}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.6, ease: 'easeOut' }}
                   className="text-primary inline-block"
                 >
                   Landmarks
@@ -103,10 +73,9 @@ const HeroSection = () => {
             </h1>
             
             <motion.p
-              custom={4}
-              initial="hidden"
-              animate="visible"
-              variants={textVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
               className="text-muted-foreground text-lg leading-relaxed mb-8"
             >
               Professional construction & design services in Wardha. With 15+ years of experience,
@@ -114,10 +83,9 @@ const HeroSection = () => {
             </motion.p>
             
             <motion.div
-              custom={5}
-              initial="hidden"
-              animate="visible"
-              variants={textVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
               className="flex flex-wrap gap-4"
             >
               <motion.div
@@ -217,7 +185,7 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.8, delay: 1, ease: 'easeOut' }}
           className="absolute bottom-0 left-0 right-0 bg-primary/95 backdrop-blur-sm py-6 px-6 lg:px-12 z-20"
         >
           <div className="flex flex-wrap justify-center lg:justify-start gap-8 lg:gap-16">
