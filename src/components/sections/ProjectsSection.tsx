@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { FadeInUp, StaggerContainer } from '@/components/ui/motion';
+import { FadeInUp } from '@/components/ui/motion';
 import projectResidential1 from '@/assets/project-residential-1.jpg';
 import projectCommercial1 from '@/assets/project-commercial-1.jpg';
 import projectResidential2 from '@/assets/project-residential-2.jpg';
@@ -40,20 +40,6 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 60, scale: 0.95 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    }),
-  };
-
   return (
     <section className="section-padding bg-background overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -84,11 +70,10 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: '-50px' }}
-              variants={cardVariants}
+              transition={{ delay: index * 0.15, duration: 0.7, ease: 'easeOut' }}
             >
               <Link
                 to={`/projects/${project.slug}`}

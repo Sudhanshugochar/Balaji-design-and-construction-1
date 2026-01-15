@@ -36,28 +36,6 @@ const services = [
 ];
 
 const ServicesSection = () => {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.12,
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    }),
-  };
-
-  const iconVariants = {
-    rest: { scale: 1, rotate: 0 },
-    hover: { 
-      scale: 1.1, 
-      rotate: 5,
-      transition: { type: 'spring', stiffness: 400, damping: 10 }
-    },
-  };
-
   return (
     <section className="section-padding bg-charcoal overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -86,16 +64,14 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.slug}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
-              variants={cardVariants}
+              transition={{ delay: index * 0.12, duration: 0.6, ease: 'easeOut' }}
             >
               <motion.div
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
+                whileHover={{ y: -8 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
                 <Link
                   to={`/services#${service.slug}`}
@@ -112,7 +88,8 @@ const ServicesSection = () => {
                   <div className="relative z-10">
                     <motion.div 
                       className="w-14 h-14 rounded bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300"
-                      variants={iconVariants}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                     >
                       <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                     </motion.div>
