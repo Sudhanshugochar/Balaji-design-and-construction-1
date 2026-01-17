@@ -223,6 +223,119 @@ const HeroSection = () => {
 
         <div className="flex flex-col justify-center px-12 xl:px-20 py-32">
           <div className="max-w-xl">
+            {/* Balaji Design & Constructions Splash Title */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="mb-8 relative"
+            >
+              {/* Splash burst effect */}
+              <motion.div
+                initial={{ scale: 0, opacity: 0.8 }}
+                animate={{ scale: [0, 2.5, 3], opacity: [0.8, 0.4, 0] }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-radial from-primary/60 to-transparent rounded-full blur-xl"
+              />
+              <motion.div
+                initial={{ scale: 0, opacity: 0.6 }}
+                animate={{ scale: [0, 2, 2.5], opacity: [0.6, 0.3, 0] }}
+                transition={{ duration: 1.4, ease: "easeOut", delay: 0.1 }}
+                className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-radial from-[hsl(45,80%,55%)]/50 to-transparent rounded-full blur-lg"
+              />
+              
+              {/* Main title with letter-by-letter splash */}
+              <div className="relative">
+                <motion.h2 
+                  className="font-display text-3xl xl:text-4xl leading-tight"
+                >
+                  <span className="block overflow-hidden">
+                    {"Balaji Design".split("").map((char, index) => (
+                      <motion.span
+                        key={index}
+                        initial={{ 
+                          opacity: 0, 
+                          y: 80,
+                          rotateX: -90,
+                          scale: 0.5
+                        }}
+                        animate={{ 
+                          opacity: 1, 
+                          y: 0,
+                          rotateX: 0,
+                          scale: 1
+                        }}
+                        transition={{
+                          duration: 0.6,
+                          delay: index * 0.04,
+                          ease: [0.25, 0.46, 0.45, 0.94]
+                        }}
+                        className={`inline-block ${char === " " ? "w-2" : ""} bg-gradient-to-r from-primary via-[hsl(45,80%,55%)] to-primary bg-clip-text text-transparent drop-shadow-[0_0_20px_hsl(0,72%,45%,0.5)]`}
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </span>
+                  <span className="block overflow-hidden mt-1">
+                    {"& Constructions".split("").map((char, index) => (
+                      <motion.span
+                        key={index}
+                        initial={{ 
+                          opacity: 0, 
+                          y: 80,
+                          rotateX: -90,
+                          scale: 0.5
+                        }}
+                        animate={{ 
+                          opacity: 1, 
+                          y: 0,
+                          rotateX: 0,
+                          scale: 1
+                        }}
+                        transition={{
+                          duration: 0.6,
+                          delay: 0.5 + index * 0.04,
+                          ease: [0.25, 0.46, 0.45, 0.94]
+                        }}
+                        className={`inline-block ${char === " " ? "w-2" : ""} bg-gradient-to-r from-primary via-[hsl(45,80%,55%)] to-primary bg-clip-text text-transparent drop-shadow-[0_0_20px_hsl(0,72%,45%,0.5)]`}
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </span>
+                </motion.h2>
+                
+                {/* Animated underline splash */}
+                <motion.div
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  animate={{ scaleX: 1, opacity: 1 }}
+                  transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+                  className="h-1 bg-gradient-to-r from-primary via-[hsl(45,80%,55%)] to-primary origin-left mt-3"
+                />
+                
+                {/* Sparkle particles */}
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ 
+                      opacity: [0, 1, 0], 
+                      scale: [0, 1.5, 0],
+                      x: [0, (i % 2 ? 1 : -1) * (20 + i * 10)],
+                      y: [0, -30 - i * 8]
+                    }}
+                    transition={{ 
+                      delay: 1 + i * 0.1, 
+                      duration: 0.8,
+                      ease: "easeOut"
+                    }}
+                    className="absolute top-0 left-1/4 w-2 h-2 bg-primary rounded-full"
+                    style={{ left: `${15 + i * 12}%` }}
+                  />
+                ))}
+              </div>
+            </motion.div>
+
             <motion.p initial={{
             opacity: 0,
             y: 20
@@ -231,7 +344,7 @@ const HeroSection = () => {
             y: 0
           }} transition={{
             duration: 0.6,
-            delay: 0.2
+            delay: 1.5
           }} className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
               <motion.span animate={{
               rotate: [0, 10, -10, 0]
