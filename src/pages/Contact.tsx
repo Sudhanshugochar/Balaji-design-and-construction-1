@@ -106,8 +106,8 @@ const Contact = () => {
                   <div>
                     <p className="font-display text-xl text-foreground mb-1">Address</p>
                     <p className="text-muted-foreground">
-                      Mhada Colony, Arvi Naka,<br />
-                      Sindi Meghe, Wardha,<br />
+                      ​prism square    <br />
+                      ​Bachelor road, wardha  <br />
                       Maharashtra 442001
                     </p>
                   </div>
