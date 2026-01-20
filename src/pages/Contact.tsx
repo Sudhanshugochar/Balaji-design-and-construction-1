@@ -81,15 +81,16 @@ const Contact = () => {
             <div>
               <h2 className="font-display text-4xl text-foreground mb-8">Get In Touch</h2>
               <div className="space-y-6 mb-12">
-                <a href="tel:+918624838652" className="flex items-start gap-4 p-6 bg-secondary border border-border hover:bg-primary/5 transition-colors">
+                <div className="flex items-start gap-4 p-6 bg-secondary border border-border">
                   <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="font-display text-xl text-foreground mb-1">Phone</p>
-                    <p className="text-muted-foreground">+91 86248 38652</p>
+                    <a href="tel:+918624838652" className="text-muted-foreground hover:text-primary transition-colors block">+91 86248 38652</a>
+                    <a href="tel:+919766953539" className="text-muted-foreground hover:text-primary transition-colors block">+91 97669 53539</a>
                   </div>
-                </a>
+                </div>
                 <a href="mailto:contact@balajidesign.com" className="flex items-start gap-4 p-6 bg-secondary border border-border hover:bg-primary/5 transition-colors">
                   <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-primary" />
