@@ -69,7 +69,7 @@ const About = () => {
               About Us
             </p>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-accent-foreground mb-6">
-              Building Trust Since 2009
+              Building Trust Since 2019
             </h1>
             <p className="text-muted-foreground text-lg">
               For over 6 years, Balaji Design & Constructions has been transforming visions into
@@ -87,7 +87,7 @@ const About = () => {
               <h2 className="section-title text-foreground mb-6">Our Story</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Balaji Design & Constructions was founded in 2009 with a simple mission: to provide
+                  Balaji Design & Constructions was founded in 2019 with a simple mission: to provide
                   honest, quality construction services to the people of Wardha and surrounding areas.
                 </p>
                 <p>
