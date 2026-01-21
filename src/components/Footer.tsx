@@ -166,7 +166,11 @@ const Footer = () => {
                   className="flex items-start gap-3 text-muted-foreground text-sm hover:text-primary transition-colors"
                 >
                   <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary" />
-                  +91 86248 38652
+                  <span>
+                    +91 86248 38652
+                    <br />
+                    +91 97669 53539
+                  </span>
                 </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 300 }}>
