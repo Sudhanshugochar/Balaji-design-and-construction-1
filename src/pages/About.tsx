@@ -6,12 +6,10 @@ import founderShubham from '@/assets/founder-shubham.png';
 import founderPrashad from '@/assets/founder-prashad.png';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
-import { FadeInUp, StaggerContainer, StaggerItem, Counter } from '@/components/ui/motion';
+import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn, Counter } from '@/components/ui/motion';
 import { VelocityText } from '@/components/ui/scroll-velocity';
-import { StickyBlurReveal } from '@/components/ui/sticky-blur-reveal';
 
 const About = () => {
-  const storyText = "Balaji Design & Constructions was founded in 2019 with a simple mission: to provide honest, quality construction services to the people of Wardha and surrounding areas. What started as a small local construction firm has grown into a trusted name in the industry, known for our commitment to excellence, transparent business practices, and personalized service. Our team of experienced architects, engineers, and craftsmen work together to deliver projects that exceed expectations. From residential homes to commercial buildings, every project receives the same level of dedication and attention to detail.";
   const founders = [
     {
       name: 'Shubham Dadgal',
@@ -94,26 +92,31 @@ const About = () => {
         />
       </section>
 
+      {/* Story Section */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Sticky scroll reveal text */}
-            <div className="lg:sticky lg:top-32">
-              <h2 className="section-title text-foreground mb-8">Our Story</h2>
-              <StickyBlurReveal
-                text={storyText}
-                className="text-muted-foreground leading-relaxed"
-                fontSize="1.0625rem"
-                lineHeight={1.8}
-                fullRevealDistance={600}
-                initialBlur={5}
-                initialOpacity={0.15}
-              />
-            </div>
-            
-            {/* Stats grid with extra scroll space */}
-            <div className="lg:min-h-[120vh] flex items-center">
-              <div className="grid grid-cols-2 gap-6 w-full">
+          <FadeInUp>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div>
+                <h2 className="section-title text-foreground mb-6">Our Story</h2>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    Balaji Design & Constructions was founded in 2019 with a simple mission: to provide
+                    honest, quality construction services to the people of Wardha and surrounding areas.
+                  </p>
+                  <p>
+                    What started as a small local construction firm has grown into a trusted name in the
+                    industry, known for our commitment to excellence, transparent business practices, and
+                    personalized service.
+                  </p>
+                  <p>
+                    Our team of experienced architects, engineers, and craftsmen work together to deliver
+                    projects that exceed expectations. From residential homes to commercial buildings, every
+                    project receives the same level of dedication and attention to detail.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-6">
                 <div className="group bg-secondary p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
                   <p className="font-display text-5xl text-primary mb-2">
                     <Counter from={0} to={6} duration={2} suffix="+" />
@@ -138,7 +141,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </FadeInUp>
         </div>
       </section>
 
