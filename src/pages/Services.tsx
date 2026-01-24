@@ -9,6 +9,7 @@ import serviceCommercial from '@/assets/service-commercial.png';
 import serviceArchitectural from '@/assets/service-architectural.png';
 import serviceStructural from '@/assets/service-structural.png';
 import serviceDesignPlanning from '@/assets/service-design-planning.png';
+import serviceTurnkey from '@/assets/service-turnkey.png';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema, ServiceSchema } from '@/components/StructuredData';
 interface Service {
@@ -55,7 +56,8 @@ const services: Service[] = [{
   title: 'Turnkey Project',
   description: 'Complete end-to-end project delivery from concept to keys. We handle everything so you can move in hassle-free.',
   features: ['Single point of contact for entire project', 'Design to completion management', 'Quality materials and workmanship', 'Timely project delivery', 'Post-construction support and warranty'],
-  slug: 'turnkey-project'
+  slug: 'turnkey-project',
+  image: serviceTurnkey
 }, {
   icon: Compass,
   title: 'Structural Design',
