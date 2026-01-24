@@ -8,62 +8,51 @@ import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn, Counter } from '@/components/ui/motion';
 import { VelocityText } from '@/components/ui/scroll-velocity';
-
 const About = () => {
-  const founders = [
-    {
-      name: 'Shubham Dadgal',
-      qualifications: ['B.E (Civil Engg.)', 'M.Tech (Structural Engg.)'],
-      experience: '6+ Years Experience',
-      image: founderShubham,
-    },
-    {
-      name: 'Prashad Gawande',
-      qualifications: ['B.E (Civil Engg.)'],
-      experience: '6+ Years Experience',
-      image: founderPrashad,
-    },
-  ];
-
-  const values = [
-    {
-      icon: CheckCircle,
-      title: 'Quality Craftsmanship',
-      description: 'We use only the finest materials and employ skilled craftsmen to ensure every project meets the highest standards.',
-    },
-    {
-      icon: Users,
-      title: 'Client-Centric Approach',
-      description: 'Your vision is our priority. We work closely with you at every stage to bring your dream to life.',
-    },
-    {
-      icon: Award,
-      title: 'Honest Work Ethics',
-      description: 'Transparency and integrity are at the core of our business. No hidden costs, no surprises.',
-    },
-    {
-      icon: Clock,
-      title: 'Timely Delivery',
-      description: 'We respect your time and commitments. Our projects are completed on schedule without compromising quality.',
-    },
-  ];
-
-  return (
-    <main className="min-h-screen">
-      <SEOHead
-        title="About Us - 6+ Years Construction Experience"
-        description="Learn about Balaji Design & Constructions, Wardha's trusted builder. 6+ years experience, 5.0★ rating, quality construction with honest work ethics."
-        canonical="/about"
-      />
-      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'About Us', url: '/about' }]} />
+  const founders = [{
+    name: 'Shubham Dadgal',
+    qualifications: ['B.E (Civil Engg.)', 'M.Tech (Structural Engg.)'],
+    experience: '6+ Years Experience',
+    image: founderShubham
+  }, {
+    name: 'Prashad Gawande',
+    qualifications: ['B.E (Civil Engg.)'],
+    experience: '6+ Years Experience',
+    image: founderPrashad
+  }];
+  const values = [{
+    icon: CheckCircle,
+    title: 'Quality Craftsmanship',
+    description: 'We use only the finest materials and employ skilled craftsmen to ensure every project meets the highest standards.'
+  }, {
+    icon: Users,
+    title: 'Client-Centric Approach',
+    description: 'Your vision is our priority. We work closely with you at every stage to bring your dream to life.'
+  }, {
+    icon: Award,
+    title: 'Honest Work Ethics',
+    description: 'Transparency and integrity are at the core of our business. No hidden costs, no surprises.'
+  }, {
+    icon: Clock,
+    title: 'Timely Delivery',
+    description: 'We respect your time and commitments. Our projects are completed on schedule without compromising quality.'
+  }];
+  return <main className="min-h-screen">
+      <SEOHead title="About Us - 6+ Years Construction Experience" description="Learn about Balaji Design & Constructions, Wardha's trusted builder. 6+ years experience, 5.0★ rating, quality construction with honest work ethics." canonical="/about" />
+      <BreadcrumbSchema items={[{
+      name: 'Home',
+      url: '/'
+    }, {
+      name: 'About Us',
+      url: '/about'
+    }]} />
       <Header />
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
+        <div className="absolute inset-0 bg-cover bg-center" style={{
+        backgroundImage: `url(${heroImage})`
+      }}>
           <div className="absolute inset-0 bg-charcoal/90" />
         </div>
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
@@ -84,12 +73,7 @@ const About = () => {
 
       {/* Scroll Velocity Text Marquee */}
       <section className="py-8 bg-charcoal border-y border-border/30 overflow-hidden">
-        <VelocityText 
-          text="Quality Construction" 
-          baseVelocity={3}
-          textClassName="text-foreground/10"
-          separator={<span className="mx-12 text-primary/30">★</span>}
-        />
+        <VelocityText text="Quality Construction" baseVelocity={3} textClassName="text-foreground/10" separator={<span className="mx-12 text-primary/30">★</span>} />
       </section>
 
       {/* Story Section */}
@@ -147,12 +131,7 @@ const About = () => {
 
       {/* Second Velocity Marquee - Opposite Direction */}
       <section className="py-6 bg-primary/5 border-y border-primary/10 overflow-hidden">
-        <VelocityText 
-          text="Trusted Builder Since 2019" 
-          baseVelocity={-2}
-          textClassName="text-primary/20"
-          separator={<span className="mx-10 text-gold/40">◆</span>}
-        />
+        <VelocityText text="Trusted Builder Since 2019" baseVelocity={-2} textClassName="text-primary/20" separator={<span className="mx-10 text-gold/40">◆</span>} />
       </section>
 
       {/* Founders Section */}
@@ -171,8 +150,7 @@ const About = () => {
           </FadeInUp>
           
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-4xl mx-auto">
-            {founders.map((founder, index) => (
-              <FadeInUp key={index} delay={index * 0.2}>
+            {founders.map((founder, index) => <FadeInUp key={index} delay={index * 0.2}>
                 <div className="group text-center">
                   {/* Photo with elegant frame */}
                   <div className="relative mx-auto mb-8 w-56 h-56 lg:w-64 lg:h-64">
@@ -182,19 +160,11 @@ const About = () => {
                     {/* Photo container */}
                     <div className="absolute inset-3 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-gold/20 p-[3px]">
                       <div className="w-full h-full rounded-full overflow-hidden">
-                        {founder.image ? (
-                          <img 
-                            src={founder.image} 
-                            alt={founder.name} 
-                            className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-charcoal to-secondary">
+                        {founder.image ? <img src={founder.image} alt={founder.name} className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" /> : <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-charcoal to-secondary">
                             <span className="font-display text-5xl text-primary">
                               {founder.name.split(' ').map(n => n[0]).join('')}
                             </span>
-                          </div>
-                        )}
+                          </div>}
                       </div>
                     </div>
                     
@@ -207,9 +177,7 @@ const About = () => {
                   {/* Content */}
                   <div className="pt-4">
                     {/* Role badge */}
-                    <span className="inline-block px-4 py-1 mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-gold border border-gold/30 bg-gold/5">
-                      Co-Founder
-                    </span>
+                    
                     
                     {/* Name */}
                     <h3 className="font-display text-3xl lg:text-4xl text-foreground mb-6 group-hover:text-primary transition-colors duration-300">
@@ -218,20 +186,14 @@ const About = () => {
                     
                     {/* Qualifications */}
                     <div className="space-y-2">
-                      {founder.qualifications.map((qual, qIndex) => (
-                        <div 
-                          key={qIndex} 
-                          className="inline-flex items-center gap-2 px-4 py-2 mx-1 bg-card/80 border border-border/50"
-                        >
+                      {founder.qualifications.map((qual, qIndex) => <div key={qIndex} className="inline-flex items-center gap-2 px-4 py-2 mx-1 bg-card/80 border border-border/50">
                           <GraduationCap className="w-4 h-4 text-primary" />
                           <span className="text-sm text-muted-foreground">{qual}</span>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
                   </div>
                 </div>
-              </FadeInUp>
-            ))}
+              </FadeInUp>)}
           </div>
         </div>
       </section>
@@ -248,8 +210,7 @@ const About = () => {
             </h2>
           </FadeInUp>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <StaggerItem key={index}>
+            {values.map((value, index) => <StaggerItem key={index}>
                 <div className="bg-background p-8 shadow-card card-hover h-full">
                   <div className="w-14 h-14 rounded bg-primary/10 flex items-center justify-center mb-6">
                     <value.icon className="w-7 h-7 text-primary" />
@@ -257,15 +218,12 @@ const About = () => {
                   <h3 className="font-display text-2xl text-foreground mb-4">{value.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
                 </div>
-              </StaggerItem>
-            ))}
+              </StaggerItem>)}
           </StaggerContainer>
         </div>
       </section>
 
       <Footer />
-    </main>
-  );
+    </main>;
 };
-
 export default About;
