@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Home, Building2, Paintbrush, Ruler, ArrowRight, CheckCircle, KeyRound, Compass, PenTool } from 'lucide-react';
@@ -111,18 +112,42 @@ const Services = () => {
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="space-y-16">
-            {services.map((service, index) => <div key={service.slug} id={service.slug} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+            {services.map((service, index) => (
+              <motion.div 
+                key={service.slug} 
+                id={service.slug} 
+                className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <motion.div 
+                  className={index % 2 === 1 ? 'lg:order-2' : ''}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                >
                   <div className="w-16 h-16 rounded bg-primary/10 flex items-center justify-center mb-6">
                     <service.icon className="w-8 h-8 text-primary" />
                   </div>
                   <h2 className="font-display text-4xl text-foreground mb-4">{service.title}</h2>
                   <p className="text-muted-foreground text-lg mb-6">{service.description}</p>
                   <ul className="space-y-3 mb-8">
-                    {service.features.map((feature, i) => <li key={i} className="flex items-center gap-3">
+                    {service.features.map((feature, i) => (
+                      <motion.li 
+                        key={i} 
+                        className="flex items-center gap-3"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.3 + i * 0.1, ease: "easeOut" }}
+                      >
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                         <span className="text-foreground">{feature}</span>
-                      </li>)}
+                      </motion.li>
+                    ))}
                   </ul>
                   <Button asChild className="btn-primary rounded-none group">
                     <Link to="/contact">
@@ -130,8 +155,14 @@ const Services = () => {
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
-                </div>
-                <div className={`group relative overflow-hidden rounded-lg aspect-[4/3] lg:aspect-square ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                </motion.div>
+                <motion.div 
+                  className={`group relative overflow-hidden rounded-lg aspect-[4/3] lg:aspect-square ${index % 2 === 1 ? 'lg:order-1' : ''}`}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 40 : -40, scale: 0.95 }}
+                  whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                >
                   {service.video ? (
                     <video src={service.video} autoPlay loop muted playsInline className="w-full h-full object-cover object-center" />
                   ) : service.image ? (
@@ -149,8 +180,9 @@ const Services = () => {
                       <service.icon className="w-32 h-32 text-primary/20" />
                     </div>
                   )}
-                </div>
-              </div>)}
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
