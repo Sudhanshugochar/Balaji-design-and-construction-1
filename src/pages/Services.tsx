@@ -8,6 +8,7 @@ import serviceResidential from '@/assets/service-residential.png';
 import serviceCommercial from '@/assets/service-commercial.png';
 import serviceArchitectural from '@/assets/service-architectural.png';
 import serviceStructural from '@/assets/service-structural.png';
+import serviceDesignPlanning from '@/assets/service-design-planning.png';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema, ServiceSchema } from '@/components/StructuredData';
 interface Service {
@@ -47,7 +48,8 @@ const services: Service[] = [{
   title: 'Design & Planning',
   description: 'Comprehensive architectural design and planning services.',
   features: ['Architectural design', 'Site planning and analysis', '3D visualization and rendering', 'Permit and approval assistance', 'Project management'],
-  slug: 'design-planning'
+  slug: 'design-planning',
+  image: serviceDesignPlanning
 }, {
   icon: KeyRound,
   title: 'Turnkey Project',
