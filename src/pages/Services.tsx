@@ -7,6 +7,7 @@ import heroImage from '@/assets/hero-construction.jpg';
 import serviceResidential from '@/assets/service-residential.png';
 import serviceCommercial from '@/assets/service-commercial.png';
 import serviceArchitectural from '@/assets/service-architectural.png';
+import serviceStructural from '@/assets/service-structural.png';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema, ServiceSchema } from '@/components/StructuredData';
 interface Service {
@@ -58,7 +59,8 @@ const services: Service[] = [{
   title: 'Structural Design',
   description: 'Expert structural engineering and design services ensuring safety, stability, and optimal load distribution.',
   features: ['Structural analysis and calculations', 'RCC design and detailing', 'Steel structure design', 'Foundation design optimization', 'Seismic and wind load analysis'],
-  slug: 'structural-design'
+  slug: 'structural-design',
+  image: serviceStructural
 }, {
   icon: PenTool,
   title: 'Architectural Design',
