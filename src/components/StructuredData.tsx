@@ -11,10 +11,10 @@ export const LocalBusinessSchema = () => {
     description: 'Professional construction company in Wardha, Maharashtra offering residential and commercial construction, design services with 6+ years of experience.',
     url: 'https://balajidesign.com',
     telephone: '+918624838652',
-    email: 'contact@balajidesign.com',
+    email: 'balajidesignandconstruction@gmail.com',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Mhada Colony, Arvi Naka, Sindi Meghe',
+      streetAddress: 'Prism Square, Bachelor Road',
       addressLocality: 'Wardha',
       addressRegion: 'Maharashtra',
       postalCode: '442001',

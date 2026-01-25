@@ -41,7 +41,7 @@ const Contact = () => {
     });
   };
   return <main className="min-h-screen">
-      <SEOHead title="Contact Us - Get Free Construction Quote" description="Contact Balaji Design & Constructions for free quote. Call +91 86248 38652 or visit us at Mhada Colony, Arvi Naka, Wardha. Professional builders in Maharashtra." canonical="/contact" />
+      <SEOHead title="Contact Us - Get Free Construction Quote" description="Contact Balaji Design & Constructions for free quote. Call +91 86248 38652 or visit us at Prism Square, Bachelor Road, Wardha. Professional builders in Maharashtra." canonical="/contact" />
       <BreadcrumbSchema items={[{
       name: 'Home',
       url: '/'
