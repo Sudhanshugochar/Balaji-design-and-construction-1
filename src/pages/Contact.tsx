@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -135,6 +135,40 @@ const Contact = () => {
               </div>
             </div>
 
+            {/* CTA Buttons */}
+            <div className="bg-charcoal p-8 lg:p-12 flex flex-col justify-center">
+              <h3 className="font-display text-3xl text-accent-foreground mb-4">
+                Get in Touch
+              </h3>
+              <p className="text-muted-foreground mb-8">
+                Reach out to us directly through your preferred channel.
+              </p>
+              <div className="flex flex-col gap-4">
+                <a
+                  href="https://wa.me/918624838652?text=Hi%2C%20I'd%20like%20to%20inquire%20about%20your%20construction%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary rounded-none w-full flex items-center justify-center gap-3 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-medium"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Chat on WhatsApp
+                </a>
+                <a
+                  href="tel:+918624838652"
+                  className="btn-primary rounded-none w-full flex items-center justify-center gap-3 py-4"
+                >
+                  <Phone className="w-5 h-5" />
+                  Call Us Now
+                </a>
+                <a
+                  href="mailto:balajidesignandconstruction@gmail.com?subject=Hi&body=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                  className="rounded-none w-full flex items-center justify-center gap-3 py-4 bg-muted border border-border text-foreground hover:bg-muted/80 transition-colors font-medium"
+                >
+                  <Mail className="w-5 h-5" />
+                  Send Email
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
