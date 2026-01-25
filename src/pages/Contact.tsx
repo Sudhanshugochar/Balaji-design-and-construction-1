@@ -80,49 +80,75 @@ const Contact = () => {
             {/* Contact Info */}
             <div>
               <h2 className="font-display text-4xl text-foreground mb-8">Get In Touch</h2>
-              <div className="space-y-6 mb-12">
-                <div className="flex items-start gap-4 p-6 bg-secondary border border-border">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-primary" />
+              <div className="space-y-4 mb-12">
+                {/* Phone Card */}
+                <div className="group flex items-start gap-5 p-6 bg-secondary border border-border hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all duration-300">
+                  <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Phone className="w-6 h-6 text-primary" />
                   </div>
-                  <div>
-                    <p className="font-display text-xl text-foreground mb-1">Phone</p>
-                    <a href="tel:+918624838652" className="text-muted-foreground hover:text-primary transition-colors block">+91 86248 38652</a>
-                    <a href="tel:+919766953539" className="text-muted-foreground hover:text-primary transition-colors block">+91 97669 53539</a>
+                  <div className="flex-1">
+                    <p className="font-display text-xl text-foreground mb-2">Phone</p>
+                    <div className="space-y-1">
+                      <a href="tel:+918624838652" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group/link">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/link:bg-primary transition-colors" />
+                        +91 86248 38652
+                      </a>
+                      <a href="tel:+919766953539" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group/link">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/link:bg-primary transition-colors" />
+                        +91 97669 53539
+                      </a>
+                    </div>
                   </div>
                 </div>
-                <a href="mailto:contact@balajidesign.com" className="flex items-start gap-4 p-6 bg-secondary border border-border hover:bg-primary/5 transition-colors">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-primary" />
+
+                {/* Email Card */}
+                <a 
+                  href="mailto:balajidesignandconstruction@gmail.com" 
+                  className="group flex items-start gap-5 p-6 bg-secondary border border-border hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all duration-300"
+                >
+                  <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Mail className="w-6 h-6 text-primary" />
                   </div>
-                  <div>
-                    <p className="font-display text-xl text-foreground mb-1">Email</p>
-                    <p className="text-muted-foreground">​balajidesignandconstruction@gmail.com </p>
+                  <div className="flex-1">
+                    <p className="font-display text-xl text-foreground mb-2">Email</p>
+                    <p className="text-muted-foreground group-hover:text-primary transition-colors break-all">
+                      balajidesignandconstruction@gmail.com
+                    </p>
                   </div>
                 </a>
-                <div className="flex items-start gap-4 p-6 bg-secondary border border-border">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-primary" />
+
+                {/* Address Card */}
+                <div className="group flex items-start gap-5 p-6 bg-secondary border border-border hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all duration-300">
+                  <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <MapPin className="w-6 h-6 text-primary" />
                   </div>
-                  <div>
-                    <p className="font-display text-xl text-foreground mb-1">Address</p>
-                    <p className="text-muted-foreground">
-                      ​prism square    <br />
-                      ​Bachelor road, wardha  <br />
+                  <div className="flex-1">
+                    <p className="font-display text-xl text-foreground mb-2">Address</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Prism Square<br />
+                      Bachelor Road, Wardha<br />
                       Maharashtra 442001
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-6 bg-secondary border border-border">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-primary" />
+
+                {/* Working Hours Card */}
+                <div className="group flex items-start gap-5 p-6 bg-secondary border border-border hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all duration-300">
+                  <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Clock className="w-6 h-6 text-primary" />
                   </div>
-                  <div>
-                    <p className="font-display text-xl text-foreground mb-1">Working Hours</p>
-                    <p className="text-muted-foreground">
-                      Mon - Sat: 9:00 AM - 6:00 PM<br />
-                      Sunday: Closed
-                    </p>
+                  <div className="flex-1">
+                    <p className="font-display text-xl text-foreground mb-2">Working Hours</p>
+                    <div className="text-muted-foreground space-y-1">
+                      <p className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                        Mon - Sat: 9:00 AM - 6:00 PM
+                      </p>
+                      <p className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                        Sunday: Closed
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
