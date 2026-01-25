@@ -2,73 +2,86 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logoImage from '@/assets/logo.png';
-
 const Footer = () => {
-  const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Services', path: '/services' },
-    { name: 'Contact', path: '/contact' },
-  ];
-
-  const otherLinks = [
-    { name: 'Reviews', path: '/reviews' },
-    { name: 'Privacy Policy', path: '/privacy' },
-    { name: 'Terms & Conditions', path: '/terms' },
-  ];
-
+  const quickLinks = [{
+    name: 'Home',
+    path: '/'
+  }, {
+    name: 'About Us',
+    path: '/about'
+  }, {
+    name: 'Projects',
+    path: '/projects'
+  }, {
+    name: 'Services',
+    path: '/services'
+  }, {
+    name: 'Contact',
+    path: '/contact'
+  }];
+  const otherLinks = [{
+    name: 'Reviews',
+    path: '/reviews'
+  }, {
+    name: 'Privacy Policy',
+    path: '/privacy'
+  }, {
+    name: 'Terms & Conditions',
+    path: '/terms'
+  }];
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0
+    },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
+        delayChildren: 0.2
+      }
+    }
   };
-
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: {
+      opacity: 0,
+      y: 20
+    },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' as const },
-    },
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut' as const
+      }
+    }
   };
-
   const socialVariants = {
-    rest: { scale: 1 },
-    hover: { 
-      scale: 1.15, 
-      rotate: 5,
+    rest: {
+      scale: 1
     },
+    hover: {
+      scale: 1.15,
+      rotate: 5
+    }
   };
-
-  return (
-    <footer className="bg-charcoal text-accent-foreground overflow-hidden">
-      <motion.div 
-        className="container mx-auto px-4 md:px-6 lg:px-8 py-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-        variants={containerVariants}
-      >
+  return <footer className="bg-charcoal text-accent-foreground overflow-hidden">
+      <motion.div className="container mx-auto px-4 md:px-6 lg:px-8 py-16" initial="hidden" whileInView="visible" viewport={{
+      once: true,
+      margin: '-100px'
+    }} variants={containerVariants}>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* Company Info */}
           <motion.div className="col-span-2 md:col-span-1 lg:col-span-1" variants={itemVariants}>
             <Link to="/" className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 group">
-              <motion.div 
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded flex items-center justify-center overflow-hidden"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-              >
-                <img 
-                  src={logoImage} 
-                  alt="Balaji Design & Constructions Logo" 
-                  className="w-full h-full object-contain"
-                />
+              <motion.div className="w-12 h-12 sm:w-14 sm:h-14 rounded flex items-center justify-center overflow-hidden" whileHover={{
+              scale: 1.1,
+              rotate: 5
+            }} transition={{
+              type: 'spring',
+              stiffness: 400,
+              damping: 10
+            }}>
+                <img src={logoImage} alt="Balaji Design & Constructions Logo" className="w-full h-full object-contain" />
               </motion.div>
               <div>
                 <h3 className="font-display text-base sm:text-lg leading-tight group-hover:text-primary transition-colors">Balaji Design</h3>
@@ -82,24 +95,18 @@ const Footer = () => {
               construction and innovative design solutions.
             </p>
             <div className="flex gap-3 sm:gap-4">
-              {[
-                { icon: Facebook, href: 'https://www.facebook.com/share/19V9zhTriM/?mibextid=wwXIfr' },
-                { icon: Instagram, href: 'https://instagram.com' },
-                { icon: Linkedin, href: 'https://linkedin.com' },
-              ].map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-muted-foreground/30 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
-                  initial="rest"
-                  whileHover="hover"
-                  variants={socialVariants}
-                >
+              {[{
+              icon: Facebook,
+              href: 'https://www.facebook.com/share/19V9zhTriM/?mibextid=wwXIfr'
+            }, {
+              icon: Instagram,
+              href: 'https://instagram.com'
+            }, {
+              icon: Linkedin,
+              href: 'https://linkedin.com'
+            }].map((social, index) => <motion.a key={index} href={social.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-muted-foreground/30 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors" initial="rest" whileHover="hover" variants={socialVariants}>
                   <social.icon className="w-4 h-4" />
-                </motion.a>
-              ))}
+                </motion.a>)}
             </div>
           </motion.div>
 
@@ -107,28 +114,28 @@ const Footer = () => {
           <motion.div variants={itemVariants}>
             <h4 className="font-display text-xl mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <motion.li 
-                  key={link.name}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                >
-                  <Link
-                    to={link.path}
-                    className="text-muted-foreground text-sm hover:text-primary transition-colors inline-block relative group"
-                  >
+              {quickLinks.map((link, index) => <motion.li key={link.name} initial={{
+              opacity: 0,
+              x: -10
+            }} whileInView={{
+              opacity: 1,
+              x: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.3 + index * 0.1
+            }}>
+                  <Link to={link.path} className="text-muted-foreground text-sm hover:text-primary transition-colors inline-block relative group">
                     {link.name}
-                    <motion.span
-                      className="absolute -bottom-0.5 left-0 h-px bg-primary"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: '100%' }}
-                      transition={{ duration: 0.3 }}
-                    />
+                    <motion.span className="absolute -bottom-0.5 left-0 h-px bg-primary" initial={{
+                  width: 0
+                }} whileHover={{
+                  width: '100%'
+                }} transition={{
+                  duration: 0.3
+                }} />
                   </Link>
-                </motion.li>
-              ))}
+                </motion.li>)}
             </ul>
           </motion.div>
 
@@ -136,28 +143,28 @@ const Footer = () => {
           <motion.div variants={itemVariants}>
             <h4 className="font-display text-xl mb-6">Other Pages</h4>
             <ul className="space-y-3">
-              {otherLinks.map((link, index) => (
-                <motion.li 
-                  key={link.name}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 + index * 0.1 }}
-                >
-                  <Link
-                    to={link.path}
-                    className="text-muted-foreground text-sm hover:text-primary transition-colors inline-block relative group"
-                  >
+              {otherLinks.map((link, index) => <motion.li key={link.name} initial={{
+              opacity: 0,
+              x: -10
+            }} whileInView={{
+              opacity: 1,
+              x: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.4 + index * 0.1
+            }}>
+                  <Link to={link.path} className="text-muted-foreground text-sm hover:text-primary transition-colors inline-block relative group">
                     {link.name}
-                    <motion.span
-                      className="absolute -bottom-0.5 left-0 h-px bg-primary"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: '100%' }}
-                      transition={{ duration: 0.3 }}
-                    />
+                    <motion.span className="absolute -bottom-0.5 left-0 h-px bg-primary" initial={{
+                  width: 0
+                }} whileHover={{
+                  width: '100%'
+                }} transition={{
+                  duration: 0.3
+                }} />
                   </Link>
-                </motion.li>
-              ))}
+                </motion.li>)}
             </ul>
           </motion.div>
 
@@ -165,11 +172,13 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="col-span-2 sm:col-span-1">
             <h4 className="font-display text-lg sm:text-xl mb-4 sm:mb-6">Contact Us</h4>
             <ul className="space-y-3 sm:space-y-4">
-              <motion.li whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 300 }}>
-                <a
-                  href="tel:+918624838652"
-                  className="flex items-start gap-2 sm:gap-3 text-muted-foreground text-xs sm:text-sm hover:text-primary transition-colors"
-                >
+              <motion.li whileHover={{
+              x: 5
+            }} transition={{
+              type: 'spring',
+              stiffness: 300
+            }}>
+                <a href="tel:+918624838652" className="flex items-start gap-2 sm:gap-3 text-muted-foreground text-xs sm:text-sm hover:text-primary transition-colors">
                   <Phone className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 flex-shrink-0 text-primary" />
                   <span>
                     +91 86248 38652
@@ -178,20 +187,23 @@ const Footer = () => {
                   </span>
                 </a>
               </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 300 }}>
-                <a
-                  href="mailto:balajidesignandconstruction@gmail.com"
-                  className="flex items-start gap-2 sm:gap-3 text-muted-foreground text-xs sm:text-sm hover:text-primary transition-colors break-all"
-                >
+              <motion.li whileHover={{
+              x: 5
+            }} transition={{
+              type: 'spring',
+              stiffness: 300
+            }}>
+                <a href="mailto:balajidesignandconstruction@gmail.com" className="flex items-start gap-2 sm:gap-3 text-muted-foreground text-xs sm:text-sm hover:text-primary transition-colors break-all">
                   <Mail className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 flex-shrink-0 text-primary" />
                   <span className="break-all">balajidesignandconstruction@gmail.com</span>
                 </a>
               </motion.li>
-              <motion.li 
-                className="flex items-start gap-2 sm:gap-3 text-muted-foreground text-xs sm:text-sm"
-                whileHover={{ x: 5 }} 
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
+              <motion.li className="flex items-start gap-2 sm:gap-3 text-muted-foreground text-xs sm:text-sm" whileHover={{
+              x: 5
+            }} transition={{
+              type: 'spring',
+              stiffness: 300
+            }}>
                 <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 flex-shrink-0 text-primary" />
                 <span>
                   Prism Square,
@@ -206,33 +218,32 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <motion.div 
-          className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-muted-foreground/20 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
+        <motion.div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-muted-foreground/20 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4" initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} transition={{
+        delay: 0.5,
+        duration: 0.5
+      }}>
           <p className="text-muted-foreground text-xs sm:text-sm text-center md:text-left">
             © {new Date().getFullYear()} Balaji Design & Constructions. All rights reserved.
           </p>
-          <motion.p 
-            className="text-muted-foreground text-xs sm:text-sm"
-            animate={{ 
-              scale: [1, 1.05, 1],
-            }}
-            transition={{ 
-              duration: 2, 
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }}
-          >
-            Built with ❤️ in Wardha
+          <motion.p className="text-muted-foreground text-xs sm:text-sm" animate={{
+          scale: [1, 1.05, 1]
+        }} transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}>
+            Built with ❤️ by aeon lab          
           </motion.p>
         </motion.div>
       </motion.div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
