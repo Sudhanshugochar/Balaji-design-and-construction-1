@@ -164,7 +164,7 @@ const AboutSection = () => {
             y: -10
           }} className="bg-charcoal p-4 sm:p-6 lg:p-8 shadow-card lg:-mt-8">
               <p className="font-display text-4xl sm:text-5xl lg:text-6xl text-primary mb-2">
-                <Counter to={15} duration={2} suffix="+" />
+                <Counter to={6} duration={2} suffix="+" />
               </p>
               <p className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wide">Years Experience</p>
               <p className="text-accent-foreground/70 text-xs sm:text-sm mt-2 sm:mt-3">Since 2019</p>
