@@ -135,41 +135,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="bg-charcoal p-8 lg:p-12">
-              <h3 className="font-display text-3xl text-accent-foreground mb-6">
-                Request a Free Quote
-              </h3>
-              <p className="text-muted-foreground mb-8">
-                Fill out the form below and we'll get back to you within 24 hours.
-              </p>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Input name="name" placeholder="Your Name *" value={formData.name} onChange={handleChange} required className="bg-charcoal-light border-muted-foreground/20 text-accent-foreground placeholder:text-muted-foreground rounded-none h-12" />
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Input name="email" type="email" placeholder="Email Address *" value={formData.email} onChange={handleChange} required className="bg-charcoal-light border-muted-foreground/20 text-accent-foreground placeholder:text-muted-foreground rounded-none h-12" />
-                  <Input name="phone" type="tel" placeholder="Phone Number *" value={formData.phone} onChange={handleChange} required className="bg-charcoal-light border-muted-foreground/20 text-accent-foreground placeholder:text-muted-foreground rounded-none h-12" />
-                </div>
-                <div>
-                  <select name="projectType" value={formData.projectType} onChange={handleChange} required className="w-full bg-charcoal-light border border-muted-foreground/20 text-accent-foreground h-12 px-3 rounded-none focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="">Select Project Type *</option>
-                    <option value="residential">Residential Construction</option>
-                    <option value="commercial">Commercial Construction</option>
-                    <option value="interior">Interior Design</option>
-                    <option value="renovation">Renovation</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <Textarea name="message" placeholder="Tell us about your project..." value={formData.message} onChange={handleChange} rows={5} className="bg-charcoal-light border-muted-foreground/20 text-accent-foreground placeholder:text-muted-foreground rounded-none resize-none" />
-                </div>
-                <Button type="submit" className="btn-primary rounded-none w-full group">
-                  Send Message
-                  <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </form>
-            </div>
           </div>
         </div>
       </section>
