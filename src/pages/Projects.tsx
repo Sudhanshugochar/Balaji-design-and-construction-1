@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowUpRight } from 'lucide-react';
 import projectResidential1 from '@/assets/project-residential-1.png';
-import projectCommercial1 from '@/assets/project-commercial-1.jpg';
+import projectCommercial1 from '@/assets/project-commercial-1.png';
 import projectResidential2 from '@/assets/project-residential-2.png';
 import projectBungalow from '@/assets/project-bungalow.jpg';
 import heroImage from '@/assets/hero-construction.jpg';
