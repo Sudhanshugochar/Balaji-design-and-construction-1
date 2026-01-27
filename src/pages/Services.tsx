@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Home, Building2, Paintbrush, Ruler, ArrowRight, CheckCircle, KeyRound, Compass, PenTool } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { motion, AnimatePresence } from 'framer-motion';
 import heroImage from '@/assets/hero-construction.jpg';
 import serviceResidential from '@/assets/service-residential.png';
 import serviceCommercial from '@/assets/service-commercial.png';
@@ -35,86 +38,116 @@ const serviceFAQs = [
     answer: 'Yes, we have expert architects and structural engineers who provide comprehensive design services including 3D visualization, structural analysis, RCC design, foundation design, and sustainable building solutions tailored to your requirements and local building codes.',
   },
 ];
+
 interface Service {
-  icon: React.ComponentType<{
-    className?: string;
-  }>;
+  icon: React.ComponentType<{ className?: string }>;
   title: string;
+  shortTitle: string;
   description: string;
   features: string[];
   slug: string;
   image?: string;
   video?: string;
 }
-const services: Service[] = [{
-  icon: Home,
-  title: 'Residential Construction',
-  description: 'Custom homes, villas, and apartments built with precision and care.',
-  features: ['Custom home design and construction', 'Villa and bungalow projects', 'Apartment building development', 'Home additions and extensions', 'Foundation and structural work'],
-  slug: 'residential-construction',
-  image: serviceResidential
-}, {
-  icon: Building2,
-  title: 'Commercial Construction',
-  description: 'Office buildings, retail spaces, and commercial complexes.',
-  features: ['Office building construction', 'Retail and shopping spaces', 'Industrial facilities', 'Warehouse construction', 'Commercial renovations'],
-  slug: 'commercial-construction',
-  image: serviceCommercial
-}, {
-  icon: Paintbrush,
-  title: 'Interior Design',
-  description: 'Transform your spaces with our expert interior design services.',
-  features: ['Complete interior design solutions', 'Kitchen and bathroom design', 'Living space optimization', 'Custom furniture design', 'Color and material consultation'],
-  slug: 'interior-design',
-  video: '/videos/service-interior.mp4'
-}, {
-  icon: Ruler,
-  title: 'Design & Planning',
-  description: 'Comprehensive architectural design and planning services.',
-  features: ['Architectural design', 'Site planning and analysis', '3D visualization and rendering', 'Permit and approval assistance', 'Project management'],
-  slug: 'design-planning',
-  image: serviceDesignPlanning
-}, {
-  icon: KeyRound,
-  title: 'Turnkey Project',
-  description: 'Complete end-to-end project delivery from concept to keys. We handle everything so you can move in hassle-free.',
-  features: ['Single point of contact for entire project', 'Design to completion management', 'Quality materials and workmanship', 'Timely project delivery', 'Post-construction support and warranty'],
-  slug: 'turnkey-project',
-  image: serviceTurnkey
-}, {
-  icon: Compass,
-  title: 'Structural Design',
-  description: 'Expert structural engineering and design services ensuring safety, stability, and optimal load distribution.',
-  features: ['Structural analysis and calculations', 'RCC design and detailing', 'Steel structure design', 'Foundation design optimization', 'Seismic and wind load analysis'],
-  slug: 'structural-design',
-  image: serviceStructural
-}, {
-  icon: PenTool,
-  title: 'Architectural Design',
-  description: 'Creative architectural solutions blending aesthetics with functionality. Unique designs tailored to your vision.',
-  features: ['Conceptual design and sketching', '3D modeling and visualization', 'Building elevation design', 'Space planning and layout', 'Sustainable design solutions'],
-  slug: 'architectural-design',
-  image: serviceArchitectural
-}];
+
+const services: Service[] = [
+  {
+    icon: Home,
+    title: 'Residential Construction',
+    shortTitle: 'Residential',
+    description: 'Custom homes, villas, and apartments built with precision and care. From foundation to finishing, we deliver your dream home with quality materials and expert craftsmanship.',
+    features: ['Custom home design and construction', 'Villa and bungalow projects', 'Apartment building development', 'Home additions and extensions', 'Foundation and structural work'],
+    slug: 'residential-construction',
+    image: serviceResidential
+  },
+  {
+    icon: Building2,
+    title: 'Commercial Construction',
+    shortTitle: 'Commercial',
+    description: 'Office buildings, retail spaces, and commercial complexes designed for functionality and aesthetic appeal. We create spaces that enhance productivity and brand presence.',
+    features: ['Office building construction', 'Retail and shopping spaces', 'Industrial facilities', 'Warehouse construction', 'Commercial renovations'],
+    slug: 'commercial-construction',
+    image: serviceCommercial
+  },
+  {
+    icon: Paintbrush,
+    title: 'Interior Design',
+    shortTitle: 'Interior',
+    description: 'Transform your spaces with our expert interior design services. We blend modern aesthetics with functional design to create environments that inspire.',
+    features: ['Complete interior design solutions', 'Kitchen and bathroom design', 'Living space optimization', 'Custom furniture design', 'Color and material consultation'],
+    slug: 'interior-design',
+    video: '/videos/service-interior.mp4'
+  },
+  {
+    icon: Ruler,
+    title: 'Design & Planning',
+    shortTitle: 'Planning',
+    description: 'Comprehensive architectural design and planning services to bring your vision to life. From concept to blueprint, we ensure every detail is perfect.',
+    features: ['Architectural design', 'Site planning and analysis', '3D visualization and rendering', 'Permit and approval assistance', 'Project management'],
+    slug: 'design-planning',
+    image: serviceDesignPlanning
+  },
+  {
+    icon: KeyRound,
+    title: 'Turnkey Project',
+    shortTitle: 'Turnkey',
+    description: 'Complete end-to-end project delivery from concept to keys. We handle everything so you can move in hassle-free with zero stress.',
+    features: ['Single point of contact for entire project', 'Design to completion management', 'Quality materials and workmanship', 'Timely project delivery', 'Post-construction support and warranty'],
+    slug: 'turnkey-project',
+    image: serviceTurnkey
+  },
+  {
+    icon: Compass,
+    title: 'Structural Design',
+    shortTitle: 'Structural',
+    description: 'Expert structural engineering and design services ensuring safety, stability, and optimal load distribution for lasting structures.',
+    features: ['Structural analysis and calculations', 'RCC design and detailing', 'Steel structure design', 'Foundation design optimization', 'Seismic and wind load analysis'],
+    slug: 'structural-design',
+    image: serviceStructural
+  },
+  {
+    icon: PenTool,
+    title: 'Architectural Design',
+    shortTitle: 'Architectural',
+    description: 'Creative architectural solutions blending aesthetics with functionality. Unique designs tailored to your vision and lifestyle.',
+    features: ['Conceptual design and sketching', '3D modeling and visualization', 'Building elevation design', 'Space planning and layout', 'Sustainable design solutions'],
+    slug: 'architectural-design',
+    image: serviceArchitectural
+  }
+];
+
 const Services = () => {
-  return <main className="min-h-screen">
-      <SEOHead title="Construction Services - Residential & Commercial" description="Professional construction services in Wardha: residential homes, commercial buildings, interior design, and architectural planning. Get free quote from Balaji Constructions." canonical="/services" />
-      <BreadcrumbSchema items={[{
-      name: 'Home',
-      url: '/'
-    }, {
-      name: 'Services',
-      url: '/services'
-    }]} />
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState('residential-construction');
+
+  // Handle hash navigation from homepage
+  useEffect(() => {
+    if (location.hash) {
+      const slug = location.hash.replace('#', '');
+      const serviceExists = services.find(s => s.slug === slug);
+      if (serviceExists) {
+        setActiveTab(slug);
+      }
+    }
+  }, [location.hash]);
+
+  const activeService = services.find(s => s.slug === activeTab) || services[0];
+
+  return (
+    <main className="min-h-screen">
+      <SEOHead 
+        title="Construction Services - Residential & Commercial" 
+        description="Professional construction services in Wardha: residential homes, commercial buildings, interior design, and architectural planning. Get free quote from Balaji Constructions." 
+        canonical="/services" 
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }]} />
       <ServiceSchema serviceName="Construction Services" serviceDescription="Complete construction services including residential, commercial, interior design and planning in Wardha, Maharashtra." />
       <FAQSchema faqs={serviceFAQs} />
       <Header />
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32">
-        <div className="absolute inset-0 bg-cover bg-center" style={{
-        backgroundImage: `url(${heroImage})`
-      }}>
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroImage})` }}>
           <div className="absolute inset-0 bg-charcoal/90" />
         </div>
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
@@ -133,55 +166,107 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services List */}
+      {/* Tabs-Based Services Section */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="space-y-12 sm:space-y-16">
-            {services.map((service, index) => <div key={service.slug} id={service.slug} className={`grid md:grid-cols-2 gap-8 sm:gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded bg-primary/10 flex items-center justify-center mb-4 sm:mb-6">
-                    <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
-                  </div>
-                  <h2 className="font-display text-3xl sm:text-4xl text-foreground mb-3 sm:mb-4">{service.title}</h2>
-                  <p className="text-muted-foreground text-base sm:text-lg mb-4 sm:mb-6">{service.description}</p>
-                  <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-                    {service.features.map((feature, i) => <li key={i} className="flex items-start gap-2 sm:gap-3">
-                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-sm sm:text-base text-foreground">{feature}</span>
-                      </li>)}
-                  </ul>
-                  <Button asChild className="btn-primary rounded-none group w-full sm:w-auto">
-                    <Link to="/contact">
-                      Get a Quote
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </div>
-                <div className={`group relative overflow-hidden rounded-lg aspect-video sm:aspect-[4/3] lg:aspect-square ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                  {service.video ? (
-                    <video src={service.video} autoPlay loop muted playsInline className="w-full h-full object-cover object-center" />
-                  ) : service.image ? (
-                    <>
-                      <img src={service.image} alt={service.title} className="w-full h-full object-center transition-transform duration-500 group-hover:scale-105 object-contain" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6 sm:pb-8">
-                        <div className="flex items-center gap-2 sm:gap-3 text-accent-foreground">
-                          <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
-                          <span className="font-display text-lg sm:text-xl">{service.title}</span>
-                        </div>
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+            {/* Tab Navigation */}
+            <div className="mb-12 overflow-x-auto scrollbar-hide">
+              <TabsList className="inline-flex w-full min-w-max gap-1 bg-transparent p-0 border-b border-border/50">
+                {services.map((service) => (
+                  <TabsTrigger
+                    key={service.slug}
+                    value={service.slug}
+                    className="group relative flex items-center gap-2 px-4 py-4 text-muted-foreground bg-transparent rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-foreground hover:text-foreground transition-colors duration-200 min-h-[56px]"
+                  >
+                    <service.icon className="w-4 h-4 shrink-0" />
+                    <span className="hidden sm:inline text-sm font-medium whitespace-nowrap">{service.shortTitle}</span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+
+            {/* Tab Content */}
+            {services.map((service) => (
+              <TabsContent key={service.slug} value={service.slug} className="mt-0 focus-visible:outline-none">
+                <AnimatePresence mode="wait">
+                  {activeTab === service.slug && (
+                    <motion.div
+                      key={service.slug}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -16 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start"
+                    >
+                      {/* Media Area */}
+                      <div className="relative aspect-[4/3] lg:aspect-square overflow-hidden rounded-lg bg-muted">
+                        {service.video ? (
+                          <video
+                            src={service.video}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                          />
+                        ) : service.image ? (
+                          <img
+                            src={service.image}
+                            alt={service.title}
+                            className="w-full h-full object-contain"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <service.icon className="w-24 h-24 text-primary/20" />
+                          </div>
+                        )}
                       </div>
-                    </>
-                  ) : (
-                    <div className="bg-secondary w-full h-full flex items-center justify-center">
-                      <service.icon className="w-24 h-24 sm:w-32 sm:h-32 text-primary/20" />
-                    </div>
+
+                      {/* Content Area */}
+                      <div className="lg:py-8">
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <service.icon className="w-6 h-6 text-primary" />
+                          </div>
+                        </div>
+                        
+                        <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">
+                          {service.title}
+                        </h2>
+                        
+                        <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                          {service.description}
+                        </p>
+
+                        <ul className="space-y-3 mb-10">
+                          {service.features.map((feature, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                              <span className="text-foreground">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <Button asChild className="btn-primary rounded-none group">
+                          <Link to="/contact">
+                            Get a Quote
+                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </motion.div>
                   )}
-                </div>
-              </div>)}
-          </div>
+                </AnimatePresence>
+              </TabsContent>
+            ))}
+          </Tabs>
         </div>
       </section>
 
       <Footer />
-    </main>;
+    </main>
+  );
 };
+
 export default Services;
