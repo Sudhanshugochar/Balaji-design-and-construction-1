@@ -15,7 +15,7 @@ const projects = [
     id: 1,
     title: 'Modern G+1, 3 BHK House',
     category: 'Residential',
-    description: 'A stunning contemporary villa with modern amenities and beautiful landscaping.',
+    description: 'The modern 3 BHK house seamlessly combines elegance and functionality, offering three spacious bedrooms, three stylish bathrooms, a contemporary kitchen, and a bright, open-plan living and dining area.',
     image: projectResidential1,
     slug: 'modern-villa-residence',
   },
