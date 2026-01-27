@@ -11,21 +11,21 @@ import projectBungalow from '@/assets/project-bungalow.jpg';
 const projects = [
   {
     id: 1,
-    title: 'Modern Villa Residence',
+    title: 'Modern G+1, 3 BHK House',
     category: 'Residential',
     image: projectResidential1,
     slug: 'modern-villa-residence',
   },
   {
     id: 2,
-    title: 'Wardha Business Center',
-    category: 'Commercial',
+    title: 'Modern G+1, 4 BHK Bungalow',
+    category: 'Residential',
     image: projectCommercial1,
     slug: 'wardha-business-center',
   },
   {
     id: 3,
-    title: 'Sunrise Apartments',
+    title: 'Modern 3 BHK House',
     category: 'Residential',
     image: projectResidential2,
     slug: 'sunrise-apartments',
