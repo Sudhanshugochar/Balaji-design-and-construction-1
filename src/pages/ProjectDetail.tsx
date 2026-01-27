@@ -23,10 +23,10 @@ const projectsData: Record<string, {
   'modern-villa-residence': {
     title: 'Modern G+1, 3 BHK House',
     category: 'Residential',
-    description: 'A testament to modern architecture. The modern 3 BHK house seamlessly combines elegance and functionality, offering three spacious bedrooms, three stylish bathrooms, a contemporary kitchen, and a bright, open-plan living and dining area.',
+    description: 'The modern 3 BHK house seamlessly combines elegance and functionality, offering three spacious bedrooms, three stylish bathrooms, a contemporary kitchen, and a bright, open-plan living and dining area.',
     location: 'Wardha-442001, MH',
     year: '2024',
-    area: '1,900 sq.ft (176.51 sq.mt)',
+    area: '1,500 sq.ft (140 sq.mt)',
     image: projectResidential1,
     details: [
       'Three spacious bedrooms with attached bathrooms',
