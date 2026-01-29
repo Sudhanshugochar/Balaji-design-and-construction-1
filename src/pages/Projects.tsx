@@ -21,7 +21,7 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Modern G+1, 4 BHK Bungalow',
+    title: 'Exterior design',
     category: 'Residential',
     description: 'A stylish G+1 modern Indian bungalow with contemporary façade and elegant textures.',
     image: projectCommercial1,
@@ -29,7 +29,7 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Modern 3 BHK House',
+    title: 'Interior design',
     category: 'Residential',
     description: 'A modern 3 BHK house combining elegance and functionality with spacious bedrooms and open-plan living.',
     image: projectResidential2,
