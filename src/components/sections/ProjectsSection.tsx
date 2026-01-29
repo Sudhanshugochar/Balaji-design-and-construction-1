@@ -15,13 +15,13 @@ const projects = [{
   slug: 'modern-villa-residence'
 }, {
   id: 2,
-  title: 'Modern G+1, 4 BHK Bungalow',
+  title: 'Exterior design',
   category: 'Residential',
   image: projectCommercial1,
   slug: 'wardha-business-center'
 }, {
   id: 3,
-  title: 'Modern 3 BHK House',
+  title: 'Interior design',
   category: 'Residential',
   image: projectResidential2,
   slug: 'sunrise-apartments'
