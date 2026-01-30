@@ -1,90 +1,74 @@
 
-# Fix for Services Tab Content Display Issue
 
-## Problem Identified
-When navigating to the Services page, all service options (Residential, Commercial, Interior, Planning, Turnkey, Structural, Architectural) are showing simultaneously instead of just the selected tab content.
+# Fix Service Section Navigation from Homepage
+
+## Problem
+When clicking on a service card in the homepage Services section, the navigation goes to `/services#service-slug`, but the page scrolls to the header/hero area instead of the services tabs section where the selected service is displayed.
 
 ## Root Cause
-The current implementation has a structural conflict between Radix UI's built-in tab visibility handling and Framer Motion's `AnimatePresence`:
-
-**Current Code Structure (lines 340-343):**
-```typescript
-{services.map((service) => (
-  <TabsContent key={service.slug} value={service.slug}>
-    <AnimatePresence mode="wait">
-      {activeTab === service.slug && (
-        <motion.div>...</motion.div>
-      )}
-    </AnimatePresence>
-  </TabsContent>
-))}
-```
-
-**The Issues:**
-1. `AnimatePresence` is placed inside each `TabsContent`, so there are 7 separate `AnimatePresence` components
-2. Radix's `TabsContent` handles its own show/hide logic, which conflicts with the manual `activeTab === service.slug` check
-3. The `mode="wait"` can't work across separate `AnimatePresence` instances
+The current implementation has a timing issue:
+- The page uses animated routes with `AnimatePresence` for page transitions
+- The `useEffect` in Services.tsx has only a 100ms delay before calculating scroll position
+- This delay is too short - the page transition animation and component rendering may not be complete
+- As a result, the scroll calculation uses incorrect element positions
 
 ## Solution
-Restructure to use a single `AnimatePresence` outside the content loop, rendering only the active service:
 
-**Fixed Structure:**
+### 1. Increase Scroll Delay Timing
+Increase the timeout from 100ms to 300-400ms to ensure the page transition completes before scrolling.
+
+### 2. Add Scroll-to-Top Reset First
+When navigating with a hash, ensure the page starts at a predictable position before scrolling to the target.
+
+### 3. Use requestAnimationFrame for Better Timing
+Wrap the scroll logic in `requestAnimationFrame` to ensure the DOM has painted before calculating positions.
+
+## Files to Modify
+
+**src/pages/Services.tsx**
+- Update the `useEffect` hook that handles hash navigation
+- Increase timeout delay from 100ms to 350ms
+- Add `requestAnimationFrame` wrapper for more reliable timing
+- Ensure smooth scroll behavior works correctly with page transitions
+
+## Technical Details
+
 ```typescript
-<AnimatePresence mode="wait">
-  <motion.div key={activeTab}>
-    {/* Render only activeService content */}
-  </motion.div>
-</AnimatePresence>
-```
-
-## Implementation Changes
-
-### File: `src/pages/Services.tsx`
-
-**Change 1: Replace the TabsContent mapping (lines 339-432)**
-
-Instead of mapping through all services and creating separate `TabsContent` components, we will:
-1. Remove the `services.map()` for TabsContent
-2. Use a single container with `AnimatePresence` outside
-3. Render only the `activeService` content inside
-
-**New structure:**
-```typescript
-{/* Single Tab Content with AnimatePresence */}
-<AnimatePresence mode="wait">
-  <motion.div
-    key={activeService.slug}
-    initial={{ opacity: 0, y: 16 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -16 }}
-    transition={{ duration: 0.3, ease: 'easeOut' }}
-    className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start"
-  >
-    {/* Media Area */}
-    <motion.div ...>
-      {activeService.video ? (...) : activeService.image ? (...) : (...)}
-    </motion.div>
+// Current problematic code
+const scrollTimeout = setTimeout(() => {
+  if (tabsSectionRef.current) {
+    const headerOffset = 100;
+    const elementPosition = tabsSectionRef.current.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - headerOffset;
     
-    {/* Content Area */}
-    <motion.div ...>
-      <activeService.icon ... />
-      <h2>{activeService.title}</h2>
-      <p>{activeService.description}</p>
-      <ul>{activeService.features.map(...)}</ul>
-      <Button>Get a Quote</Button>
-    </motion.div>
-  </motion.div>
-</AnimatePresence>
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+}, 100); // Too short for page transitions
+
+// Fixed implementation
+const scrollTimeout = setTimeout(() => {
+  requestAnimationFrame(() => {
+    if (tabsSectionRef.current) {
+      const headerOffset = 100;
+      const elementPosition = tabsSectionRef.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+}, 350); // Enough time for page transition to complete
 ```
 
-This approach:
-- Uses the already-defined `activeService` variable (line 250)
-- Removes redundant `TabsContent` components since we're managing visibility ourselves
-- Ensures only one service content is rendered at a time
-- Properly enables exit animations with single `AnimatePresence`
+## Expected Outcome
+After clicking any service card on the homepage:
+1. The page navigates to `/services#service-slug`
+2. The correct service tab is pre-selected
+3. The page smoothly scrolls to the tabs section (not the header)
+4. The selected service content is visible in the viewport
 
-## Summary
-- Remove the `services.map()` that creates multiple `TabsContent` components
-- Keep the `TabsList` and `TabsTrigger` mapping for navigation
-- Use a single `AnimatePresence` wrapper with `activeService` as the content source
-- Animations will work correctly with `mode="wait"` for smooth transitions
