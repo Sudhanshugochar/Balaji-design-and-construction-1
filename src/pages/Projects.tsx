@@ -28,7 +28,7 @@ import exterior12 from '@/assets/exterior-12.jpg';
 import exterior13 from '@/assets/exterior-13.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
-import FlipGallery from '@/components/ui/flip-gallery';
+import ImageAutoSlider from '@/components/ui/image-auto-slider';
 import { FadeInUp } from '@/components/ui/motion';
 
 const planningImages = [
@@ -51,17 +51,17 @@ const exteriorImages = [
   { id: 13, image: exterior13, alt: 'Contemporary residential building' },
 ];
 
-const interiorGalleryImages = [
-  { title: 'Modern Interior Concept', url: projectResidential2 },
-  { title: 'Living Room Decor', url: interior1 },
-  { title: 'TV Unit Design', url: interior2 },
-  { title: 'Contemporary Bedroom', url: interior3 },
-  { title: 'Office Workspace', url: interior4 },
-  { title: 'Open Plan Office', url: interior5 },
-  { title: 'Gallery Wall Living', url: interior6 },
-  { title: 'Luxury TV Unit', url: interior7 },
-  { title: 'Decorative TV Wall', url: interior8 },
-  { title: 'False Ceiling Design', url: interior9 },
+const interiorSliderImages = [
+  projectResidential2,
+  interior1,
+  interior2,
+  interior3,
+  interior4,
+  interior5,
+  interior6,
+  interior7,
+  interior8,
+  interior9,
 ];
 
 const containerVariants = {
@@ -191,9 +191,7 @@ const Projects = () => {
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Interior Design</h2>
               </div>
             </FadeInUp>
-            <div className="flex justify-center">
-              <FlipGallery images={interiorGalleryImages} />
-            </div>
+            <ImageAutoSlider images={interiorSliderImages} />
           </div>
         </div>
       </section>
