@@ -28,6 +28,7 @@ import exterior12 from '@/assets/exterior-12.jpg';
 import exterior13 from '@/assets/exterior-13.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
+import FlipGallery from '@/components/ui/flip-gallery';
 import { FadeInUp } from '@/components/ui/motion';
 
 const planningImages = [
@@ -50,17 +51,17 @@ const exteriorImages = [
   { id: 13, image: exterior13, alt: 'Contemporary residential building' },
 ];
 
-const interiorImages = [
-  { id: 1, image: projectResidential2, alt: 'Modern interior design concept' },
-  { id: 2, image: interior1, alt: 'Living room with artistic wall decor' },
-  { id: 3, image: interior2, alt: 'Modern living room with TV unit' },
-  { id: 4, image: interior3, alt: 'Contemporary bedroom with wardrobe' },
-  { id: 5, image: interior4, alt: 'Modern office workspace design' },
-  { id: 6, image: interior5, alt: 'Open plan office interior with greenery' },
-  { id: 7, image: interior6, alt: 'Elegant gallery wall living space' },
-  { id: 8, image: interior7, alt: 'Luxury TV unit with LED lighting design' },
-  { id: 9, image: interior8, alt: 'Modern TV wall with decorative panels' },
-  { id: 10, image: interior9, alt: 'Contemporary living room with false ceiling' },
+const interiorGalleryImages = [
+  { title: 'Modern Interior Concept', url: projectResidential2 },
+  { title: 'Living Room Decor', url: interior1 },
+  { title: 'TV Unit Design', url: interior2 },
+  { title: 'Contemporary Bedroom', url: interior3 },
+  { title: 'Office Workspace', url: interior4 },
+  { title: 'Open Plan Office', url: interior5 },
+  { title: 'Gallery Wall Living', url: interior6 },
+  { title: 'Luxury TV Unit', url: interior7 },
+  { title: 'Decorative TV Wall', url: interior8 },
+  { title: 'False Ceiling Design', url: interior9 },
 ];
 
 const containerVariants = {
@@ -179,7 +180,21 @@ const Projects = () => {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <GalleryGrid images={planningImages} title="Planning" category="Design & Architecture" />
           <GalleryGrid images={exteriorImages} title="Exterior Design" category="Facade & Elevation" />
-          <GalleryGrid images={interiorImages} title="Interior Design" category="Interior Concepts" />
+          
+          {/* Interior Design with Flip Gallery */}
+          <div className="mb-16">
+            <FadeInUp>
+              <div className="mb-8">
+                <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-2">
+                  Interior Concepts
+                </p>
+                <h2 className="font-display text-2xl md:text-3xl text-foreground">Interior Design</h2>
+              </div>
+            </FadeInUp>
+            <div className="flex justify-center">
+              <FlipGallery images={interiorGalleryImages} />
+            </div>
+          </div>
         </div>
       </section>
 
