@@ -1,74 +1,51 @@
 
+# Fix Google Rating Not Showing on Mobile
 
-# Fix Service Section Navigation from Homepage
+## Problem Identified
+The Google Rating (5.0) and Years Experience (6+) counters are showing "0.0" and "0+" on mobile devices instead of animating to their actual values.
 
-## Problem
-When clicking on a service card in the homepage Services section, the navigation goes to `/services#service-slug`, but the page scrolls to the header/hero area instead of the services tabs section where the selected service is displayed.
+**Root Cause**: The `Counter` component in `src/components/ui/motion.tsx` uses `useInView` with a `margin: '-100px'` setting. This means the animation only triggers when the element is 100px inside the viewport. On mobile devices with smaller screen heights, the stats cards may not meet this threshold before users scroll past them, leaving the counters stuck at 0.
 
-## Root Cause
-The current implementation has a timing issue:
-- The page uses animated routes with `AnimatePresence` for page transitions
-- The `useEffect` in Services.tsx has only a 100ms delay before calculating scroll position
-- This delay is too short - the page transition animation and component rendering may not be complete
-- As a result, the scroll calculation uses incorrect element positions
+---
 
 ## Solution
 
-### 1. Increase Scroll Delay Timing
-Increase the timeout from 100ms to 300-400ms to ensure the page transition completes before scrolling.
+Reduce the negative margin in the `Counter` component's `useInView` hook to be more mobile-friendly, ensuring the counting animation triggers properly on all screen sizes.
 
-### 2. Add Scroll-to-Top Reset First
-When navigating with a hash, ensure the page starts at a predictable position before scrolling to the target.
+---
 
-### 3. Use requestAnimationFrame for Better Timing
-Wrap the scroll logic in `requestAnimationFrame` to ensure the DOM has painted before calculating positions.
+## Technical Implementation
 
-## Files to Modify
+### File: `src/components/ui/motion.tsx`
 
-**src/pages/Services.tsx**
-- Update the `useEffect` hook that handles hash navigation
-- Increase timeout delay from 100ms to 350ms
-- Add `requestAnimationFrame` wrapper for more reliable timing
-- Ensure smooth scroll behavior works correctly with page transitions
+**Change the Counter component's useInView margin from `-100px` to `-20px`:**
 
-## Technical Details
+```tsx
+// Before (line 233)
+const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-```typescript
-// Current problematic code
-const scrollTimeout = setTimeout(() => {
-  if (tabsSectionRef.current) {
-    const headerOffset = 100;
-    const elementPosition = tabsSectionRef.current.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-    
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  }
-}, 100); // Too short for page transitions
-
-// Fixed implementation
-const scrollTimeout = setTimeout(() => {
-  requestAnimationFrame(() => {
-    if (tabsSectionRef.current) {
-      const headerOffset = 100;
-      const elementPosition = tabsSectionRef.current.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  });
-}, 350); // Enough time for page transition to complete
+// After
+const isInView = useInView(ref, { once: true, margin: '-20px' });
 ```
 
-## Expected Outcome
-After clicking any service card on the homepage:
-1. The page navigates to `/services#service-slug`
-2. The correct service tab is pre-selected
-3. The page smoothly scrolls to the tabs section (not the header)
-4. The selected service content is visible in the viewport
+This smaller margin ensures the counting animation triggers much earlier as the element approaches the viewport edge, making it work reliably on mobile devices where screen real estate is limited.
 
+---
+
+## Why This Works
+
+- `-100px` margin requires the element to be 100px inside the viewport before triggering
+- On mobile (375px wide, ~700px visible height), by the time users see the stats cards, the -100px threshold may not be met before they scroll past
+- Reducing to `-20px` triggers the animation much sooner, ensuring users see the numbers count up as intended
+
+---
+
+## Expected Result
+
+After this fix:
+- **Google Rating** will animate from 0 to 5.0
+- **Satisfied Clients** will animate from 0 to 30+
+- **Years Experience** will animate from 0 to 6+
+- **Commitment** will animate from 0 to 100%
+
+All animations will trigger properly on both mobile and desktop devices.
