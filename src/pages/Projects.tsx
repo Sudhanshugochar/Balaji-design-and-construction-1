@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { motion } from 'framer-motion';
+
 import projectResidential2 from '@/assets/project-residential-2.png';
 import interior1 from '@/assets/interior-1.jpg';
 import interior2 from '@/assets/interior-2.jpg';
@@ -33,10 +33,10 @@ import { BreadcrumbSchema } from '@/components/StructuredData';
 import ImageAutoSlider from '@/components/ui/image-auto-slider';
 import { FadeInUp } from '@/components/ui/motion';
 
-const planningImages = [
-  { id: 1, image: planning1, alt: 'Residential floor plan with living room and bedrooms' },
-  { id: 2, image: planning2, alt: 'Multi-unit apartment floor plan layout' },
-  { id: 3, image: planning3, alt: 'Modern home floor plan with parking' },
+const planningSliderImages = [
+  planning1,
+  planning2,
+  planning3,
 ];
 
 const exteriorSliderImages = [
@@ -67,75 +67,6 @@ const interiorSliderImages = [
   interior8,
   interior9,
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
-
-interface GalleryGridProps {
-  images: { id: number; image: string; alt: string }[];
-  title: string;
-  category: string;
-}
-
-const GalleryGrid = ({ images, title, category }: GalleryGridProps) => (
-  <div className="mb-16">
-    <FadeInUp>
-      <div className="mb-8">
-        <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-2">
-          {category}
-        </p>
-        <h2 className="font-display text-2xl md:text-3xl text-foreground">{title}</h2>
-      </div>
-    </FadeInUp>
-    <motion.div
-      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
-    >
-      {images.map((item) => (
-        <motion.div
-          key={item.id}
-          variants={itemVariants}
-          className="group relative overflow-hidden bg-muted aspect-[4/3]"
-        >
-          <motion.img
-            src={item.image}
-            alt={item.alt}
-            className="w-full h-full object-cover"
-            whileHover={{ scale: 1.08 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            loading="lazy"
-          />
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          />
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
-);
 
 const Projects = () => {
   return (
@@ -182,7 +113,18 @@ const Projects = () => {
       {/* Gallery Sections */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <GalleryGrid images={planningImages} title="Planning" category="Design & Architecture" />
+          {/* Planning with Auto Slider */}
+          <div className="mb-16">
+            <FadeInUp>
+              <div className="mb-8">
+                <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-2">
+                  Design & Architecture
+                </p>
+                <h2 className="font-display text-2xl md:text-3xl text-foreground">Planning</h2>
+              </div>
+            </FadeInUp>
+            <ImageAutoSlider images={planningSliderImages} />
+          </div>
           
           {/* Exterior Design with Auto Slider */}
           <div className="mb-16">
