@@ -1,82 +1,119 @@
 
-# Enhanced Image Gallery Animations
 
-## Current State
-The project gallery currently uses basic CSS hover effects (`hover:scale-105`). All images appear at once without any scroll-triggered entrance animations.
+# Enhanced Gallery Animations for Projects Page
 
-## Proposed Enhancements
-
-### 1. Staggered Entrance Animations
-Each image will animate in with a cascading delay effect as the user scrolls, creating a professional "reveal" experience.
-
-### 2. Enhanced Hover Effects
-Add smooth scale, shadow lift, and subtle rotation on hover using Framer Motion for buttery-smooth interactions.
-
-### 3. Blur-to-Focus Effect
-Images will start slightly blurred and come into focus as they animate in, adding visual polish.
+## Overview
+Upgrade the project gallery with premium, polished animations that create a professional browsing experience without relying on scroll-triggered effects (as previously removed per your request).
 
 ---
 
-## Technical Implementation
+## Animation Enhancements
+
+### 1. Initial Page Load Animation
+When the page loads, images will gracefully appear with a staggered fade-in effect, giving a polished first impression.
+
+### 2. Advanced Hover Effects
+Each image card will feature:
+- **3D Tilt Effect**: Subtle rotation based on mouse position
+- **Gradient Overlay**: Text/icon reveal on hover
+- **Image Brightness Boost**: Slight brightness increase
+- **Smooth Shadow Expansion**: Dynamic shadow that grows on hover
+
+### 3. Magnetic Cursor Effect (Desktop)
+Cards will subtly follow the cursor when hovering, creating an engaging interactive feel.
+
+### 4. Category Label Animation
+Category icons/badges that fade in on hover with a slide-up effect.
+
+---
+
+## Technical Details
 
 ### File: `src/pages/Projects.tsx`
 
-**Changes:**
-1. Import additional animation components: `StaggerContainer`, `StaggerItem`, `ScaleIn`, `motion`
-2. Wrap each gallery grid in `StaggerContainer`
-3. Wrap each image card in `StaggerItem` with enhanced hover animations
-4. Add `motion.div` wrapper for advanced hover effects (scale, shadow, subtle rotation)
-
-**Before:**
+**New Imports:**
 ```tsx
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-  {images.map((image, index) => (
-    <div key={index} className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-      <img src={image} className="hover:scale-105 transition-transform duration-300" />
-    </div>
-  ))}
-</div>
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 ```
 
-**After:**
+**New Component - ImageCard with 3D Tilt:**
 ```tsx
-<StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-  {images.map((image, index) => (
-    <StaggerItem key={index}>
-      <motion.div 
-        className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg group cursor-pointer"
-        whileHover={{ 
-          scale: 1.03, 
-          y: -8,
-          boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      >
-        <motion.img 
-          src={image} 
-          className="w-full h-full object-cover"
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.4 }}
-        />
-      </motion.div>
-    </StaggerItem>
+const ImageCard = ({ image, alt, aspectRatio = "4/3" }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  const rotateX = useTransform(y, [-100, 100], [5, -5]);
+  const rotateY = useTransform(x, [-100, 100], [-5, 5]);
+  
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    x.set(e.clientX - rect.left - rect.width / 2);
+    y.set(e.clientY - rect.top - rect.height / 2);
+  };
+  
+  return (
+    <motion.div
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      whileHover={{ scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.25)" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => { x.set(0); y.set(0); }}
+      className="..."
+    >
+      {/* Gradient overlay on hover */}
+      {/* Category badge animation */}
+      <motion.img ... />
+    </motion.div>
+  );
+};
+```
+
+**Enhanced Hover States:**
+| Property | Before | After |
+|----------|--------|-------|
+| Scale | 1.03 | 1.02 (subtler) |
+| Shadow | Static | Dynamic depth |
+| Rotation | None | 3D tilt |
+| Image | Scale 1.1 | Scale 1.08 + brightness |
+| Overlay | None | Gradient fade |
+
+**Container Animation (Optional Stagger on Load):**
+```tsx
+<motion.div
+  initial="hidden"
+  animate="visible"
+  variants={{
+    hidden: { opacity: 1 },
+    visible: { transition: { staggerChildren: 0.05 } }
+  }}
+>
+  {images.map((image, i) => (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 }
+      }}
+    >
+      <ImageCard ... />
+    </motion.div>
   ))}
-</StaggerContainer>
+</motion.div>
 ```
 
 ---
 
-## Animation Effects Summary
+## Animation Summary
 
 | Effect | Description |
 |--------|-------------|
-| **Staggered Reveal** | Images fade in and slide up one-by-one (0.12s delay between each) |
-| **Card Lift** | On hover, card lifts up (-8px) with enhanced shadow |
-| **Smooth Scale** | Card scales to 1.03x, image inside scales to 1.1x |
-| **Spring Physics** | Uses spring animation for natural, bouncy feel |
+| **3D Tilt** | Cards rotate slightly based on cursor position |
+| **Gradient Reveal** | Dark gradient appears from bottom on hover |
+| **Magnetic Pull** | Subtle card movement toward cursor |
+| **Shadow Depth** | Shadow grows and softens on hover |
+| **Image Glow** | Brightness increases on hover |
+| **Stagger Load** | Images fade in sequentially on page load (0.05s delay each) |
 
 ---
 
 ## Files to Modify
-- `src/pages/Projects.tsx` - Add stagger animations and enhanced hover effects
+- `src/pages/Projects.tsx` - Add ImageCard component with 3D tilt and enhanced hover animations
 
