@@ -27,6 +27,13 @@ import exterior13 from '@/assets/exterior-13.jpg';
 import planning1 from '@/assets/planning-1.jpg';
 import planning2 from '@/assets/planning-2.jpg';
 import planning3 from '@/assets/planning-3.jpg';
+import planning4 from '@/assets/planning-4.jpg';
+import planning5 from '@/assets/planning-5.jpg';
+import planning6 from '@/assets/planning-6.jpg';
+import planning7 from '@/assets/planning-7.jpg';
+import planning8 from '@/assets/planning-8.jpg';
+import planning9 from '@/assets/planning-9.jpg';
+import planning10 from '@/assets/planning-10.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
 import { FadeInUp } from '@/components/ui/motion';
@@ -36,6 +43,13 @@ const planningSliderImages = [
   planning1,
   planning2,
   planning3,
+  planning4,
+  planning5,
+  planning6,
+  planning7,
+  planning8,
+  planning9,
+  planning10,
 ];
 
 const exteriorSliderImages = [
