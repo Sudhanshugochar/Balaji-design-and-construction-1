@@ -10,6 +10,12 @@ import interior6 from '@/assets/interior-6.jpg';
 import interior7 from '@/assets/interior-7.jpg';
 import interior8 from '@/assets/interior-8.jpg';
 import interior9 from '@/assets/interior-9.jpg';
+import interior10 from '@/assets/interior-10.jpg';
+import interior11 from '@/assets/interior-11.jpg';
+import interior12 from '@/assets/interior-12.jpg';
+import interior13 from '@/assets/interior-13.jpg';
+import interior14 from '@/assets/interior-14.jpg';
+import interior15 from '@/assets/interior-15.jpg';
 import heroImage from '@/assets/hero-construction.jpg';
 import exterior1 from '@/assets/exterior-1.jpg';
 import exterior2 from '@/assets/exterior-2.jpg';
@@ -78,6 +84,12 @@ const interiorSliderImages = [
   interior7,
   interior8,
   interior9,
+  interior10,
+  interior11,
+  interior12,
+  interior13,
+  interior14,
+  interior15,
 ];
 
 const Projects = () => {
