@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-import projectResidential2 from '@/assets/project-residential-2.png';
 import interior1 from '@/assets/interior-1.jpg';
 import interior2 from '@/assets/interior-2.jpg';
 import interior3 from '@/assets/interior-3.jpg';
@@ -55,7 +54,6 @@ const exteriorSliderImages = [
 ];
 
 const interiorSliderImages = [
-  projectResidential2,
   interior1,
   interior2,
   interior3,
