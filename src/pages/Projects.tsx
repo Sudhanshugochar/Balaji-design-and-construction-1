@@ -170,71 +170,27 @@ const Projects = () => {
           {/* Exterior Design */}
           <div className="mb-16">
             <FadeInUp>
-              <div className="mb-8">
+              <div className="mb-8 text-center">
                 <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-2">
                   Facade & Elevation
                 </p>
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Exterior Design</h2>
               </div>
             </FadeInUp>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {exteriorSliderImages.map((image, index) => (
-                <motion.div 
-                  key={index}
-                  className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg cursor-pointer"
-                  whileHover={{ 
-                    scale: 1.03, 
-                    y: -8,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <motion.img 
-                    src={image} 
-                    alt={`Exterior design ${index + 1}`} 
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.4 }}
-                    loading="lazy"
-                  />
-                </motion.div>
-              ))}
-            </div>
+            <CurvedCarousel images={exteriorSliderImages} />
           </div>
           
           {/* Interior Design */}
           <div className="mb-16">
             <FadeInUp>
-              <div className="mb-8">
+              <div className="mb-8 text-center">
                 <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-2">
                   Interior Concepts
                 </p>
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Interior Design</h2>
               </div>
             </FadeInUp>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {interiorSliderImages.map((image, index) => (
-                <motion.div 
-                  key={index}
-                  className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg cursor-pointer"
-                  whileHover={{ 
-                    scale: 1.03, 
-                    y: -8,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <motion.img 
-                    src={image} 
-                    alt={`Interior design ${index + 1}`} 
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.4 }}
-                    loading="lazy"
-                  />
-                </motion.div>
-              ))}
-            </div>
+            <CurvedCarousel images={interiorSliderImages} />
           </div>
         </div>
       </section>
