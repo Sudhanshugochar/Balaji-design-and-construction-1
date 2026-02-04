@@ -177,7 +177,7 @@ const Projects = () => {
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Exterior Design</h2>
               </div>
             </FadeInUp>
-            <CurvedCarousel images={exteriorSliderImages} />
+            <CurvedCarousel images={exteriorSliderImages} aspectRatio="portrait" />
           </div>
           
           {/* Interior Design */}
