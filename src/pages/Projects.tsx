@@ -164,7 +164,7 @@ const Projects = () => {
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Planning</h2>
               </div>
             </FadeInUp>
-            <CurvedCarousel images={planningSliderImages} />
+            <CurvedCarousel images={planningSliderImages} aspectRatio="landscape" />
           </div>
           
           {/* Exterior Design */}
