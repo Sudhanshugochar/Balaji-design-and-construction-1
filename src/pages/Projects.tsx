@@ -52,6 +52,7 @@ import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
 import { FadeInUp } from '@/components/ui/motion';
 import { motion } from 'framer-motion';
+import CurvedCarousel from '@/components/ui/curved-carousel';
 
 const planningSliderImages = [
   planning1,
@@ -156,36 +157,14 @@ const Projects = () => {
           {/* Planning */}
           <div className="mb-16">
             <FadeInUp>
-              <div className="mb-8">
+              <div className="mb-8 text-center">
                 <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-2">
                   Design & Architecture
                 </p>
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Planning</h2>
               </div>
             </FadeInUp>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {planningSliderImages.map((image, index) => (
-                <motion.div 
-                  key={index}
-                  className="aspect-[3/4] rounded-lg overflow-hidden shadow-lg cursor-pointer bg-muted"
-                  whileHover={{ 
-                    scale: 1.03, 
-                    y: -8,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <motion.img 
-                    src={image} 
-                    alt={`Planning design ${index + 1}`} 
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.4 }}
-                    loading="lazy"
-                  />
-                </motion.div>
-              ))}
-            </div>
+            <CurvedCarousel images={planningSliderImages} />
           </div>
           
           {/* Exterior Design */}
