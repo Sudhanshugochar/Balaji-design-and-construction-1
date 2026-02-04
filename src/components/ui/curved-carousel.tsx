@@ -145,11 +145,7 @@ export default function CurvedCarousel({
 
       {/* Image counter */}
       <div className="text-center mt-4">
-        <span className="text-sm text-muted-foreground">
-          <span className="text-primary font-semibold">{activeIndex + 1}</span>
-          {' / '}
-          {images.length}
-        </span>
+        
       </div>
     </div>;
 }
