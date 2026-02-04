@@ -6,11 +6,18 @@ import { cn } from '@/lib/utils';
 interface CurvedCarouselProps {
   images: string[];
   className?: string;
+  aspectRatio?: 'portrait' | 'landscape' | 'square';
 }
 export default function CurvedCarousel({
   images,
-  className
+  className,
+  aspectRatio = 'portrait'
 }: CurvedCarouselProps) {
+  const aspectClasses = {
+    portrait: 'aspect-[3/4]',
+    landscape: 'aspect-[4/3]',
+    square: 'aspect-square'
+  };
   const [activeIndex, setActiveIndex] = useState(Math.floor(images.length / 2));
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -108,7 +115,7 @@ export default function CurvedCarousel({
             scale: style.scale * 1.05
           } : {}}>
                 <div className="relative rounded-xl overflow-hidden shadow-2xl transition-shadow duration-300">
-                  <div className="aspect-[4/3] bg-muted">
+                  <div className={cn(aspectClasses[aspectRatio], "bg-muted")}>
                     <img src={image} alt={`Gallery image ${index + 1}`} className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   
