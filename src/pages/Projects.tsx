@@ -38,6 +38,9 @@ import exterior18 from '@/assets/exterior-18.jpg';
 import exterior19 from '@/assets/exterior-19.jpg';
 import exterior20 from '@/assets/exterior-20.jpg';
 import exterior21 from '@/assets/exterior-21.jpg';
+import exterior22 from '@/assets/exterior-22.jpg';
+import exterior23 from '@/assets/exterior-23.jpg';
+import exterior24 from '@/assets/exterior-24.jpg';
 import planning1 from '@/assets/planning-1.jpg';
 import planning2 from '@/assets/planning-2.jpg';
 import planning3 from '@/assets/planning-3.jpg';
@@ -89,6 +92,9 @@ const exteriorSliderImages = [
   exterior19,
   exterior20,
   exterior21,
+  exterior22,
+  exterior23,
+  exterior24,
 ];
 
 const interiorSliderImages = [
