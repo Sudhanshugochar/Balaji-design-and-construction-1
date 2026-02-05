@@ -154,19 +154,6 @@ const Projects = () => {
       {/* Gallery Sections */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          {/* Planning */}
-          <div className="mb-16">
-            <FadeInUp>
-              <div className="mb-8 text-center">
-                <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-2">
-                  Design & Architecture
-                </p>
-                <h2 className="font-display text-2xl md:text-3xl text-foreground">Planning</h2>
-              </div>
-            </FadeInUp>
-            <CurvedCarousel images={planningSliderImages} aspectRatio="landscape" />
-          </div>
-          
           {/* Exterior Design */}
           <div className="mb-16">
             <FadeInUp>
@@ -191,6 +178,19 @@ const Projects = () => {
               </div>
             </FadeInUp>
             <CurvedCarousel images={interiorSliderImages} />
+          </div>
+          
+          {/* Planning */}
+          <div className="mb-16">
+            <FadeInUp>
+              <div className="mb-8 text-center">
+                <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-2">
+                  Design & Architecture
+                </p>
+                <h2 className="font-display text-2xl md:text-3xl text-foreground">Planning</h2>
+              </div>
+            </FadeInUp>
+            <CurvedCarousel images={planningSliderImages} aspectRatio="landscape" />
           </div>
         </div>
       </section>
