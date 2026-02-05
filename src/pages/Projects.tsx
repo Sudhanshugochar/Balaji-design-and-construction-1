@@ -105,6 +105,16 @@ const exteriorSliderImages = [
   exterior22,
   exterior23,
   exterior24,
+  exterior25,
+  exterior26,
+  exterior27,
+  exterior28,
+  exterior29,
+  exterior30,
+  exterior31,
+  exterior32,
+  exterior33,
+  exterior34,
 ];
 
 const interiorSliderImages = [
