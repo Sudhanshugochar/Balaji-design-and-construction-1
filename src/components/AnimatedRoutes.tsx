@@ -4,11 +4,17 @@ import Index from '@/pages/Index';
 import About from '@/pages/About';
 import Projects from '@/pages/Projects';
 import Services from '@/pages/Services';
+import ResidentialConstruction from '@/pages/services/ResidentialConstruction';
+import CommercialConstruction from '@/pages/services/CommercialConstruction';
+import ArchitecturalDesign from '@/pages/services/ArchitecturalDesign';
+import CivilContracting from '@/pages/services/CivilContracting';
 import Contact from '@/pages/Contact';
 import Reviews from '@/pages/Reviews';
 import Privacy from '@/pages/Privacy';
 import Terms from '@/pages/Terms';
 import NotFound from '@/pages/NotFound';
+import BlogIndex from '@/pages/blog/Index';
+import BlogPost from '@/pages/blog/BlogPost';
 import PageTransition from './PageTransition';
 
 const AnimatedRoutes = () => {
@@ -50,6 +56,38 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/services/residential-construction"
+          element={
+            <PageTransition>
+              <ResidentialConstruction />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/services/commercial-construction"
+          element={
+            <PageTransition>
+              <CommercialConstruction />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/services/architectural-design"
+          element={
+            <PageTransition>
+              <ArchitecturalDesign />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/services/civil-contracting"
+          element={
+            <PageTransition>
+              <CivilContracting />
+            </PageTransition>
+          }
+        />
+        <Route
           path="/contact"
           element={
             <PageTransition>
@@ -78,6 +116,22 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Terms />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <PageTransition>
+              <BlogIndex />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <PageTransition>
+              <BlogPost />
             </PageTransition>
           }
         />
