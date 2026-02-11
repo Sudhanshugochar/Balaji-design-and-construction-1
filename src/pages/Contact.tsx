@@ -143,12 +143,24 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-display text-lg sm:text-xl text-foreground mb-2">Address</p>
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      Prism Square<br />
-                      Bachelor Road, Wardha<br />
-                      Maharashtra 442001
-                    </p>
+                    <p className="font-display text-lg sm:text-xl text-foreground mb-4">Address</p>
+                    <div className="space-y-4">
+                      <div>
+                        <p className="font-semibold text-sm sm:text-base text-foreground mb-1">Office 1 – Wardha</p>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                          Prism Square<br />
+                          Bachelor Road, Wardha<br />
+                          Maharashtra 442001
+                        </p>
+                      </div>
+                      <div className="border-t border-border/50 pt-4">
+                        <p className="font-semibold text-sm sm:text-base text-foreground mb-1">Office 2 – Nagpur</p>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                          Pratap Nagar<br />
+                          Nagpur, Maharashtra
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
