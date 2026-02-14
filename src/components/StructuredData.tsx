@@ -41,7 +41,7 @@ export const LocalBusinessSchema = () => {
       worstRating: '1',
     },
     priceRange: '₹₹₹',
-    image: 'https://balajidesignandconstructions.com/logo.svg',
+    image: 'https://balajidesignandconstructions.com/logo.png',
     sameAs: [
       'https://www.facebook.com/balajidesignconstructions',
       'https://www.instagram.com/balajidesignconstructions',
@@ -162,7 +162,7 @@ export const OrganizationSchema = () => {
     '@type': 'Organization',
     name: 'Balaji Design & Construction',
     url: 'https://balajidesignandconstructions.com',
-    logo: 'https://balajidesignandconstructions.com/logo.svg',
+    logo: 'https://balajidesignandconstructions.com/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+91-86248-38652',
