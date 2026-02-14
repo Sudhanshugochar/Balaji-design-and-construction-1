@@ -17,7 +17,7 @@ const SEOHead = ({
   image = '/og-image.png',
   noindex = false,
 }: SEOHeadProps) => {
-  const siteUrl = 'https://balajidesign.com';
+  const siteUrl = 'https://balajidesignandconstructions.com';
   const fullUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
   const fullTitle = `${title} | Balaji Design & Construction`;
 

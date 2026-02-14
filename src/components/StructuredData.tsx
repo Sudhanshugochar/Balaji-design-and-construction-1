@@ -5,11 +5,11 @@ export const LocalBusinessSchema = () => {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://balajidesign.com/#business',
+    '@id': 'https://balajidesignandconstructions.com/#business',
     name: 'Balaji Design & Construction',
     alternateName: 'Balaji Design & Constructions Wardha',
     description: 'Balaji Design & Construction - Professional construction company offering residential and commercial construction, design services with 6+ years of experience.',
-    url: 'https://balajidesign.com',
+    url: 'https://balajidesignandconstructions.com',
     telephone: '+918624838652',
     email: 'balajidesignandconstruction@gmail.com',
     address: {
@@ -41,7 +41,7 @@ export const LocalBusinessSchema = () => {
       worstRating: '1',
     },
     priceRange: '₹₹₹',
-    image: 'https://balajidesign.com/og-image.jpg',
+    image: 'https://balajidesignandconstructions.com/og-image.jpg',
     sameAs: [
       'https://www.facebook.com/balajidesignconstructions',
       'https://www.instagram.com/balajidesignconstructions',
@@ -117,7 +117,7 @@ export const BreadcrumbSchema = ({ items }: { items: BreadcrumbItem[] }) => {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `https://balajidesign.com${item.url}`,
+      item: `https://balajidesignandconstructions.com${item.url}`,
     })),
   };
 
@@ -161,8 +161,8 @@ export const OrganizationSchema = () => {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Balaji Design & Construction',
-    url: 'https://balajidesign.com',
-    logo: 'https://balajidesign.com/logo.png',
+    url: 'https://balajidesignandconstructions.com',
+    logo: 'https://balajidesignandconstructions.com/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+91-86248-38652',
@@ -228,10 +228,10 @@ export const WebsiteSchema = () => {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Balaji Design & Construction',
-    url: 'https://balajidesign.com',
+    url: 'https://balajidesignandconstructions.com',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://balajidesign.com/projects?q={search_term_string}',
+      target: 'https://balajidesignandconstructions.com/projects?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };

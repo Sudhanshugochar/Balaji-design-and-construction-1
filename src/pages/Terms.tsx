@@ -57,7 +57,7 @@ const Terms = () => {
               <p>
                 For any questions regarding these terms, please contact us at:
                 <br />
-                Email: contact@balajidesign.com
+                Email: contact@balajidesignandconstructions.com
                 <br />
                 Phone: +91 86248 38652
               </p>
