@@ -60,7 +60,7 @@ const Contact = () => {
     });
   };
   return <main className="min-h-screen">
-      <SEOHead title="Contact Us - Get Free Construction Quote" description="Contact Balaji Design & Constructions for free quote. Call +91 86248 38652 or visit us at Prism Square, Bachelor Road, Wardha. Professional builders in Maharashtra." canonical="/contact" />
+      <SEOHead title="Contact Us - Get Free Construction Quote" description="Contact Balaji Design & Construction for free quote. Call +91 86248 38652 or visit us for professional construction services. Expert builders for your construction projects." canonical="/contact" />
       <BreadcrumbSchema items={[{
       name: 'Home',
       url: '/'

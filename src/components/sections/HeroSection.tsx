@@ -175,7 +175,7 @@ const HeroSection = () => {
   const headlineWords2 = ['Creating'];
   const {
     displayText
-  } = useTypewriter('Professional construction & design services in Wardha, Nagpur, Pune. With 6+ years of experience, we transform your vision into reality with quality craftsmanship and honest work.', 1.0, 30);
+  } = useTypewriter('Professional construction & design services transforming visions into reality. With 6+ years of experience, we deliver quality craftsmanship and honest work across residential & commercial projects.', 1.0, 30);
   return <section ref={sectionRef} className="relative min-h-screen flex overflow-hidden">
       {/* Floating Particles Background */}
       <FloatingParticles />
@@ -224,7 +224,7 @@ const HeroSection = () => {
 
         <div className="flex flex-col justify-center px-12 xl:px-20 py-32">
           <div className="max-w-xl">
-            {/* Balaji Design & Constructions Splash Title */}
+            {/* Balaji Design & Construction Splash Title */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -278,7 +278,7 @@ const HeroSection = () => {
                     ))}
                   </span>
                   <span className="block overflow-hidden mt-1">
-                    {"& Constructions".split("").map((char, index) => (
+                    {"& Construction".split("").map((char, index) => (
                       <motion.span
                         key={index}
                         initial={{ 

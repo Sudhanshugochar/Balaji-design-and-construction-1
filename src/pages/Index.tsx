@@ -13,8 +13,8 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <SEOHead
-        title="Best Construction Company in Wardha"
-        description="Balaji Design & Constructions - Top-rated builders in Wardha, Maharashtra. 6+ years of experience in residential & commercial construction. 5.0★ Google rating. Call +91 86248 38652."
+        title="Balaji Design & Construction - Best Builders & Architects"
+        description="Balaji Design & Construction - Top-rated construction company with 6+ years of experience in residential & commercial construction. 5.0★ Google rating. Call +91 86248 38652."
         canonical="/"
       />
       <LocalBusinessSchema />

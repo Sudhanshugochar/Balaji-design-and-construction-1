@@ -19,7 +19,7 @@ const SEOHead = ({
 }: SEOHeadProps) => {
   const siteUrl = 'https://balajidesign.com';
   const fullUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
-  const fullTitle = `${title} | Balaji Design & Constructions Wardha`;
+  const fullTitle = `${title} | Balaji Design & Construction`;
 
   return (
     <Helmet>
@@ -35,7 +35,7 @@ const SEOHead = ({
       <meta property="og:type" content={type} />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:image" content={`${siteUrl}${image}`} />
-      <meta property="og:site_name" content="Balaji Design & Constructions" />
+      <meta property="og:site_name" content="Balaji Design & Construction" />
       <meta property="og:locale" content="en_IN" />
       
       {/* Twitter Card */}

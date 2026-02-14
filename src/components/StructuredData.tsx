@@ -6,9 +6,9 @@ export const LocalBusinessSchema = () => {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': 'https://balajidesign.com/#business',
-    name: 'Balaji Design & Constructions',
-    alternateName: 'Balaji Constructions Wardha',
-    description: 'Professional construction company in Wardha, Maharashtra offering residential and commercial construction, design services with 6+ years of experience.',
+    name: 'Balaji Design & Construction',
+    alternateName: 'Balaji Design & Constructions Wardha',
+    description: 'Balaji Design & Construction - Professional construction company offering residential and commercial construction, design services with 6+ years of experience.',
     url: 'https://balajidesign.com',
     telephone: '+918624838652',
     email: 'balajidesignandconstruction@gmail.com',
@@ -160,7 +160,7 @@ export const OrganizationSchema = () => {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Balaji Design & Constructions',
+    name: 'Balaji Design & Construction',
     url: 'https://balajidesign.com',
     logo: 'https://balajidesign.com/logo.png',
     contactPoint: {
@@ -191,7 +191,7 @@ export const ReviewSchema = ({ reviews }: { reviews: Review[] }) => {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Balaji Design & Constructions',
+    name: 'Balaji Design & Construction',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
@@ -227,7 +227,7 @@ export const WebsiteSchema = () => {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Balaji Design & Constructions',
+    name: 'Balaji Design & Construction',
     url: 'https://balajidesign.com',
     potentialAction: {
       '@type': 'SearchAction',

@@ -158,7 +158,7 @@ const Projects = () => {
     <main className="min-h-screen">
       <SEOHead
         title="Our Projects - Construction Portfolio"
-        description="View our completed construction projects in Wardha: residential villas, commercial buildings, apartments, and bungalows. Quality craftsmanship by Balaji Constructions."
+        description="View our completed construction projects: residential villas, commercial buildings, apartments, and bungalows. Quality craftsmanship by Balaji Design & Construction."
         canonical="/projects"
       />
       <BreadcrumbSchema

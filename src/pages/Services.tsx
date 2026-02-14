@@ -260,7 +260,7 @@ const Services = () => {
     <main className="min-h-screen">
       <SEOHead 
         title="Construction Services - Residential & Commercial" 
-        description="Professional construction services in Wardha: residential homes, commercial buildings, interior design, and architectural planning. Get free quote from Balaji Constructions." 
+        description="Professional construction services: residential homes, commercial buildings, interior design, and architectural planning. Get free quote from Balaji Design & Construction." 
         canonical="/services" 
       />
       <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }]} />
