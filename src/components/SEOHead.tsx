@@ -7,6 +7,7 @@ interface SEOHeadProps {
   type?: 'website' | 'article';
   image?: string;
   noindex?: boolean;
+  keywords?: string;
 }
 
 const SEOHead = ({
@@ -16,6 +17,7 @@ const SEOHead = ({
   type = 'website',
   image = '/og-image.png',
   noindex = false,
+  keywords = '',
 }: SEOHeadProps) => {
   const siteUrl = 'https://balajidesignandconstructions.com';
   const fullUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
@@ -25,6 +27,7 @@ const SEOHead = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={fullUrl} />
       
       {noindex && <meta name="robots" content="noindex, nofollow" />}

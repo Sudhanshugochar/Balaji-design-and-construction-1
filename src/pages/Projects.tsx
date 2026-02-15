@@ -157,9 +157,10 @@ const Projects = () => {
   return (
     <main className="min-h-screen">
       <SEOHead
-        title="Our Projects - Construction Portfolio"
-        description="View our completed construction projects: residential villas, commercial buildings, apartments, and bungalows. Quality craftsmanship by Balaji Design & Construction."
+        title="Construction Projects in Wardha | Residential & Commercial Portfolio"
+        description="View completed construction projects by Balaji Design & Construction in Wardha: residential villas, commercial buildings, apartments, bungalows. Quality craftsmanship since 2018."
         canonical="/projects"
+        keywords="construction projects Wardha, residential projects Wardha, commercial projects Wardha, building portfolio Wardha, house projects, villa projects Wardha, construction portfolio, completed projects"
       />
       <BreadcrumbSchema
         items={[

@@ -259,9 +259,10 @@ const Services = () => {
   return (
     <main className="min-h-screen">
       <SEOHead 
-        title="Construction Services - Residential & Commercial" 
-        description="Professional construction services: residential homes, commercial buildings, interior design, and architectural planning. Get free quote from Balaji Design & Construction." 
-        canonical="/services" 
+        title="Construction Services in Wardha | Residential & Commercial Building" 
+        description="Construction services in Wardha by Balaji Design & Construction: residential homes, commercial buildings, interior design, architectural planning, turnkey projects. Get free quote: +91 86248 38652"
+        canonical="/services"
+        keywords="construction services Wardha, home construction Wardha, commercial construction Wardha, building contractors Wardha, house builders Wardha, residential construction services, interior design Wardha, architectural services Wardha, turnkey construction Wardha, project management services"
       />
       <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }]} />
       <ServiceSchema serviceName="Construction Services" serviceDescription="Complete construction services including residential, commercial, interior design and planning in Wardha, Maharashtra." />

@@ -4,11 +4,11 @@ import { Helmet } from 'react-helmet-async';
 export const LocalBusinessSchema = () => {
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'ConstructionBusiness', 'HomeAndConstructionBusiness'],
     '@id': 'https://balajidesignandconstructions.com/#business',
     name: 'Balaji Design & Construction',
-    alternateName: 'Balaji Design & Constructions Wardha',
-    description: 'Balaji Design & Construction - Professional construction company offering residential and commercial construction, design services with 6+ years of experience.',
+    alternateName: ['Balaji Design & Constructions', 'Balaji Construction Company Wardha', 'Balaji Builders Wardha'],
+    description: 'Balaji Design & Construction - Professional construction company in Wardha offering residential and commercial construction, architectural design services with 6+ years of experience. Top-rated builders in Wardha, Maharashtra.',
     url: 'https://balajidesignandconstructions.com',
     telephone: '+918624838652',
     email: 'balajidesignandconstruction@gmail.com',
@@ -46,19 +46,53 @@ export const LocalBusinessSchema = () => {
       'https://www.facebook.com/balajidesignconstructions',
       'https://www.instagram.com/balajidesignconstructions',
     ],
-    areaServed: {
-      '@type': 'GeoCircle',
-      geoMidpoint: {
-        '@type': 'GeoCoordinates',
-        latitude: 20.7387,
-        longitude: 78.6030,
+    areaServed: [
+      {
+        '@type': 'GeoCircle',
+        geoMidpoint: {
+          '@type': 'GeoCoordinates',
+          latitude: 20.7387,
+          longitude: 78.6030,
+        },
+        geoRadius: '50000',
       },
-      geoRadius: '50000',
-    },
-    serviceArea: {
-      '@type': 'AdministrativeArea',
-      name: 'Wardha District, Maharashtra',
-    },
+      {
+        '@type': 'City',
+        name: 'Wardha',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Wardha District',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Maharashtra',
+      },
+    ],
+    serviceArea: [
+      {
+        '@type': 'City',
+        name: 'Wardha',
+      },
+      {
+        '@type': 'City',
+        name: 'Nagpur',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Maharashtra',
+      },
+    ],
+    knowsAbout: [
+      'Residential Construction',
+      'Commercial Construction',
+      'Architectural Design',
+      'Structural Engineering',
+      'Interior Design',
+      'Turnkey Construction',
+      'Project Management',
+      'Civil Construction',
+    ],
   };
 
   return (

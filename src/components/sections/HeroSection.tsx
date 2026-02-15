@@ -512,7 +512,7 @@ const HeroSection = () => {
             duration: 0.6,
             delay: 0.2
           }} className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4">
-              Wardha's Trusted Engineers
+              Best Construction Company in Wardha
             </motion.p>
             <motion.h1 initial={{
             opacity: 0,
@@ -526,7 +526,7 @@ const HeroSection = () => {
           }} className="font-display text-4xl sm:text-5xl text-accent-foreground leading-[1.1] mb-6">
               Building Dreams,
               <br />
-              Creating <span className="text-primary">Landmarks</span>
+              Creating <span className="text-primary">Quality Landmarks</span>
             </motion.h1>
             <motion.p initial={{
             opacity: 0,
@@ -538,7 +538,7 @@ const HeroSection = () => {
             duration: 0.6,
             delay: 0.5
            }} className="text-white/90 text-sm sm:text-base leading-relaxed mb-6">
-              Professional construction & design services in Wardha, Nagpur & Pune. 6+ years of trusted experience.
+              Top-rated professional construction company in Wardha offering residential & commercial building solutions. 6+ years of trusted experience in Maharashtra.
             </motion.p>
             <motion.div initial={{
             opacity: 0,

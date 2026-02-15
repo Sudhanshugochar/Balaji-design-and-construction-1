@@ -60,7 +60,12 @@ const Contact = () => {
     });
   };
   return <main className="min-h-screen">
-      <SEOHead title="Contact Us - Get Free Construction Quote" description="Contact Balaji Design & Construction for free quote. Call +91 86248 38652 or visit us for professional construction services. Expert builders for your construction projects." canonical="/contact" />
+      <SEOHead 
+        title="Contact Balaji Design & Construction - Free Quote in Wardha" 
+        description="Contact Balaji Design & Construction in Wardha for free construction quote. Call +91 86248 38652 or visit us. Expert builders for residential & commercial projects." 
+        canonical="/contact"
+        keywords="contact us Wardha, construction company contact, free quote Wardha, builders near me, construction contractors Wardha, contact construction company, build your home Wardha"
+      />
       <BreadcrumbSchema items={[{
       name: 'Home',
       url: '/'

@@ -13,9 +13,10 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <SEOHead
-        title="Balaji Design & Construction - Best Builders & Architects"
-        description="Balaji Design & Construction - Top-rated construction company with 6+ years of experience in residential & commercial construction. 5.0★ Google rating. Call +91 86248 38652."
+        title="Construction Company in Wardha | Best Builders & Architects Maharashtra"
+        description="Balaji Design & Construction - #1 construction company in Wardha, Maharashtra. 6+ years building dreams. Residential & commercial construction, architectural design. 5.0★ rating. Free consultation: +91 86248 38652"
         canonical="/"
+        keywords="construction company in Wardha, construction company near me, best builders in Wardha, home builders Wardha Maharashtra, house construction Wardha, commercial builders Wardha, building contractors Wardha, residential construction Wardha, architectural design Wardha, turnkey construction services, civil contractors in Wardha, interior design Wardha, project management Wardha"
       />
       <LocalBusinessSchema />
       <OrganizationSchema />
