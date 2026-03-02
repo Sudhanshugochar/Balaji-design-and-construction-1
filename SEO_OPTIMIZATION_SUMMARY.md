@@ -198,6 +198,14 @@ Sitemap: https://balajidesignandconstructions.com/sitemap.xml
   - Services: **0.9** (high priority)
   - Projects: **0.9** (high priority)
   - Contact: **0.9** (high priority)
+
+---
+
+## 🔶 Favicon & Site Icon Updates
+
+The original favicon was only 16×16, which limited Google’s ability to surface the icon across different devices. A script (`scripts/generate_favicon.py`) now produces a multi‑size `.ico` along with individual PNG files (16×16, 24×24, 32×32, 48×48, 64×64, 96×96, 128×128, 256×256) and an `apple-touch-icon.png`. These files are referenced in `index.html` using explicit `<link>` tags with `sizes` attributes, ensuring crawlers and browsers can pick up the appropriate version quickly.
+
+✅ **Action**: Run `python scripts/generate_favicon.py` whenever `public/logo.png` changes. Commit the generated images and deploy. Google will be able to list the favicon faster across platforms.
   - About: **0.8** (medium priority)
   - Individual projects: **0.7** (lower priority)
   - Legal pages: **0.3** (lowest priority)
